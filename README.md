@@ -5,15 +5,8 @@ This repo contains a boilerplate setup for spinning up 3 Docker containers:
 1. A Python Flask container to implement a REST API
 1. A Local AppSmith Server
 
-## How to setup and start the containers
-**Important** - you need Docker Desktop installed
+The platform aims to provide cancer patients and their families with comprehensive information about different types of cancer, treatment options, available support resources, and opportunities to connect with others who have similar experiences. The platform aims to solve the problem of a lack of easily accessible and reliable information about cancer and its related resources. Cancer patients and their families often face overwhelming amounts of information and uncertainty about their diagnosis, treatment options, and support resources. This can lead to confusion, anxiety, and difficulty in making informed decisions about their care. By offering a comprehensive source of information and community support, this platform can help to alleviate some of the stress and uncertainty associated with a cancer diagnosis and treatment.
 
-1. Clone this repository.  
-1. Create a file named `db_root_password.txt` in the `secrets/` folder and put inside of it the root password for MySQL. 
-1. Create a file named `db_password.txt` in the `secrets/` folder and put inside of it the password you want to use for the a non-root user named webapp. 
-1. In a terminal or command prompt, navigate to the folder with the `docker-compose.yml` file.  
-1. Build the images with `docker compose build`
-1. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`. 
 
 
 
