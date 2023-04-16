@@ -1,10 +1,8 @@
 CREATE DATABASE DynamoMealsV2;
 
-SHOW DATABASES;
-
 USE DynamoMealsV2;
 
-create table Accounts (
+create table DynamoMealsV2.Accounts (
 	account_id VARCHAR(50) PRIMARY KEY,
 	account_num VARCHAR(50) NOT NULL,
 	vendor VARCHAR(50) NOT NULL,
@@ -25,7 +23,7 @@ INSERT INTO Accounts(account_id,account_num,vendor,name,address) VALUES ('jpd-19
 INSERT INTO Accounts(account_id,account_num,vendor,name,address) VALUES ('jnh-304-4709',54078017611439,'jcb','Coleen Prestland','86012 6th Lane');
 INSERT INTO Accounts(account_id,account_num,vendor,name,address) VALUES ('dox-693-4876',24334935106546,'jcb','Charmaine Braniff','01039 4th Road');
 
-create table Users (
+create table DynamoMealsV2.Users (
 	user_id VARCHAR(50) PRIMARY KEY,
 	username VARCHAR(50) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
@@ -53,7 +51,7 @@ INSERT INTO Users(user_id,username,first_name,last_name,date_of_birth,gender,acc
 INSERT INTO Users(user_id,username,first_name,last_name,date_of_birth,gender,account_created,last_login,private,email,account_id) VALUES (8686381072,'cdonnetta','Cecil','Donnett','1987-07-13','Female','2023-01-14','2023-04-26','true','cdonnetta@tiny.cc','jnh-304-4709');
 INSERT INTO Users(user_id,username,first_name,last_name,date_of_birth,gender,account_created,last_login,private,email,account_id) VALUES (4569140322,'jgrelkab','Jesse','Grelka','1983-01-11','Male','2023-03-10','2023-06-02','false','jgrelkab@wunderground.com','dox-693-4876');
 
-create table Chefs (
+create table DynamoMealsV2.Chefs (
 	chef_id VARCHAR(50) PRIMARY KEY,
 	user_id VARCHAR(50) NOT NULL,
 	description VARCHAR(50),
@@ -74,7 +72,7 @@ INSERT INTO Chefs(chef_id,user_id,description,address) VALUES ('chef-4471120964'
 INSERT INTO Chefs(chef_id,user_id,description,address) VALUES ('chef-3096234415',8686381072,'Fundamental eco-centric groupware','33209 Burning Wood Trail');
 INSERT INTO Chefs(chef_id,user_id,description,address) VALUES ('chef-0728410444',4569140322,'Sharable multi-state core','1960 Swallow Way');
 
-create table Drivers (
+create table DynamoMealsV2.Drivers (
 	driver_id VARCHAR(50) PRIMARY KEY,
 	user_id VARCHAR(50) NOT NULL,
 	car_make VARCHAR(50),
@@ -96,7 +94,7 @@ INSERT INTO Drivers(driver_id,user_id,car_make,license_plate,available) VALUES (
 INSERT INTO Drivers(driver_id,user_id,car_make,license_plate,available) VALUES ('driver-3703669094',8686381072,'Jaguar','ZPX-1Ww','false');
 INSERT INTO Drivers(driver_id,user_id,car_make,license_plate,available) VALUES ('driver-4546280011',4569140322,'Ford','Qih-Pph','false');
 
-create table Consumers (
+create table DynamoMealsV2.Consumers (
 	consumer_id VARCHAR(50) PRIMARY KEY,
 	user_id VARCHAR(50) NOT NULL,
 	address VARCHAR(50) NOT NULL,
@@ -116,9 +114,10 @@ INSERT INTO Consumers(consumer_id,user_id,address) VALUES ('consumer-7287119693'
 INSERT INTO Consumers(consumer_id,user_id,address) VALUES ('consumer-0231141671',8686381072,'769 Sugar Alley');
 INSERT INTO Consumers(consumer_id,user_id,address) VALUES ('consumer-6783275722',4569140322,'98 Ridgeview Crossing');
 
-create table Posts (
+create table DynamoMealsV2.Posts (
 	post_id VARCHAR(50) PRIMARY KEY,
 	chef_id VARCHAR(50) NOT NULL,
+	title VARCHAR(50),
 	description VARCHAR(50),
 	currently_available VARCHAR(50) NOT NULL,
 	expected_time VARCHAR(50),
@@ -127,20 +126,20 @@ create table Posts (
 	CONSTRAINT fk_5 FOREIGN KEY (chef_id) REFERENCES Chefs (chef_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('rzr196044484','chef-7875749874','analyzing','true','9:40','true','$28.06');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('cnw352274004','chef-5869604817','database','true','7:01','true','$95.75');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('rst248404468','chef-7164354370','migration','false','10:58','false','$55.23');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('yxh438557827','chef-2633786937','access','true','8:47','true','$98.40');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('jkt408438930','chef-0306640423','functionalities','true','4:21','true','$63.07');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('wfn922984184','chef-1796940861','frame','true','4:12','false','$57.16');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('mfy402387120','chef-7053122169','analyzing','true','2:06','true','$52.50');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('hdg991375001','chef-9823785908','Team-oriented','true','1:21','true','$10.77');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('pde019813118','chef-5039725977','incremental','true','2:02','true','$99.35');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('zuv343504096','chef-4471120964','portal','false','8:22','true','$93.43');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('hfo669891937','chef-3096234415','Visionary','true','4:29','true','$39.75');
-INSERT INTO Posts(post_id,chef_id,description,currently_available,expected_time,need_delivery,price) VALUES ('lav921517714','chef-0728410444','system engine','true','5:58','false','$96.51');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('rzr196044484','chef-7875749874','analyzing','description','true','9:40','true','$28.06');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('cnw352274004','chef-5869604817','database','description','true','7:01','true','$95.75');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('rst248404468','chef-7164354370','migration','description','false','10:58','false','$55.23');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('yxh438557827','chef-2633786937','access','description','true','8:47','true','$98.40');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('jkt408438930','chef-0306640423','functionalities','description','true','4:21','true','$63.07');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('wfn922984184','chef-1796940861','frame','description','true','4:12','false','$57.16');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('mfy402387120','chef-7053122169','analyzing','description','true','2:06','true','$52.50');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('hdg991375001','chef-9823785908','Team-oriented','description','true','1:21','true','$10.77');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('pde019813118','chef-5039725977','incremental','description','true','2:02','true','$99.35');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('zuv343504096','chef-4471120964','portal','description','false','8:22','true','$93.43');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('hfo669891937','chef-3096234415','Visionary','description','true','4:29','true','$39.75');
+INSERT INTO Posts(post_id,chef_id,title,description,currently_available,expected_time,need_delivery,price) VALUES ('lav921517714','chef-0728410444','system engine','description','true','5:58','false','$96.51');
 
-create table FoodTag (
+create table DynamoMealsV2.FoodTag (
 	post_id VARCHAR(50),
 	tag_name VARCHAR(50),
 	primary key(post_id, tag_name),
@@ -160,7 +159,7 @@ INSERT INTO FoodTag(post_id,tag_name) VALUES ('zuv343504096','Garam Masala Powde
 INSERT INTO FoodTag(post_id,tag_name) VALUES ('hfo669891937','Onions - White');
 INSERT INTO FoodTag(post_id,tag_name) VALUES ('lav921517714','Sour Cream');
 
-create table Orders (
+create table DynamoMealsV2.Orders (
 	order_id VARCHAR(50) PRIMARY KEY,
 	post_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
@@ -182,7 +181,7 @@ INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('a8g5g5q5j
 INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('y6z3d0p5e0s3','hfo669891937','consumer-0231141671','12:01 PM');
 INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('j5g4t0a8x9n8','lav921517714','consumer-6783275722','5:27 AM');
 
-create table PostReviews (
+create table DynamoMealsV2.PostReviews (
 	post_review_id VARCHAR(50) PRIMARY KEY,
 	post_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
@@ -205,7 +204,7 @@ INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) V
 INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('um732lro047','hfo669891937','consumer-0231141671',3,'Intuitive directional installation');
 INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('sq591tno319','lav921517714','consumer-6783275722',5,'Progressive impactful support');
 
-create table ChefReview (
+create table DynamoMealsV2.ChefReview (
 	chef_review_id VARCHAR(50) PRIMARY KEY,
 	reviewer_id VARCHAR(50) NOT NULL,
 	chef_id VARCHAR(50) NOT NULL,
@@ -228,7 +227,7 @@ INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VA
 INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('g2e8l5m3z8t5',8686381072,'chef-3096234415',5,'Open-source interactive analyzer');
 INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('m6h5y0r1z3d2',4569140322,'chef-0728410444',4,'Multi-layered responsive ability');
 
-create table ConsReview (
+create table DynamoMealsV2.ConsReview (
 	consumer_review_id VARCHAR(50) PRIMARY KEY,
 	reviewer_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
@@ -251,7 +250,7 @@ INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,descrip
 INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('s8g0o9i1q6l9',8686381072,'consumer-0231141671',3,'Re-engineered fresh-thinking adapter');
 INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('i0e8o5y2m8z5',4569140322,'consumer-6783275722',4,'Right-sized maximized attitude');
 
-create table DriverReview (
+create table DynamoMealsV2.DriverReview (
 	driver_review_id VARCHAR(50) PRIMARY KEY,
 	reviewer_id VARCHAR(50) NOT NULL,
 	driver_id VARCHAR(50) NOT NULL,
@@ -274,7 +273,7 @@ INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,descripti
 INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('l5f3s5j2f7p7',8686381072,'driver-3703669094',1,'Synergistic grid-enabled superstructure');
 INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('v3p7b9l4g1r3',4569140322,'driver-4546280011',2,'Realigned empowering attitude');
 
-create table Deliveries (
+create table DynamoMealsV2.Deliveries (
 	delivery_id VARCHAR(50) PRIMARY KEY,
 	order_id VARCHAR(50) NOT NULL,
 	driver_id VARCHAR(50) NOT NULL,
@@ -298,5 +297,3 @@ INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_d
 INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('XTE7MKxeAl','a8g5g5q5j2k4','driver-2833491848','6:07 AM','11:31 AM','65 Arrowood Plaza','83 Fremont Street');
 INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('2Wx2BrOf6k','y6z3d0p5e0s3','driver-3703669094','3:15 PM','4:04 PM','6 Burning Wood Place','44855 Farmco Alley');
 INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('CoX516DeFs','j5g4t0a8x9n8','driver-4546280011','1:19 AM','9:47 PM','17526 Boyd Court','48342 Comanche Junction');
-
-SELECT * FROM Deliveries;
