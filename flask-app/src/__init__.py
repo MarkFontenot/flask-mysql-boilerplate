@@ -33,14 +33,20 @@ def create_app():
     from src.views                      import views
     from src.customers.customers        import customers
     from src.products.products          import products
+    
     from src.ads.ads                    import ads
+    from src.analytics.analytics        import analytics
+    from src.comments.comments          import comments
     from src.thoughts.thoughts          import thoughts
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(views,       url_prefix='/v')
-    app.register_blueprint(customers,   url_prefix='/c')
+    app.register_blueprint(customers,   url_prefix='/cus')
     app.register_blueprint(products,    url_prefix='/p')
-    app.register_blueprint(ads,         url_prefix='/a')
+
+    app.register_blueprint(ads,         url_prefix='/ad')
+    app.register_blueprint(analytics,   url_prefix='/an')
+    app.register_blueprint(comments,    url_prefix='/c')
     app.register_blueprint(thoughts,    url_predix='/t')
 
     return app
