@@ -1,44 +1,120 @@
 [
   {
-    "_id": "88175af4-17b2-4389-abdd-eaae3b1c72a5",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET /",
-    "url": "localhost:8001/",
+    "_id": "88d0cf30-c1bd-432c-aeb7-57893fd60624",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "bd20efcd-9c97-4e67-8e1d-43f11b63d1f3",
+    "name": "Get all writers",
+    "url": "{{host}}:{{port}}/w/writers",
     "method": "GET",
     "sortNum": 10000,
-    "created": "2023-03-29T12:09:19.195Z",
-    "modified": "2023-03-29T12:10:39.391Z",
+    "created": "2023-04-17T23:41:48.534Z",
+    "modified": "2023-04-17T23:53:13.989Z",
     "headers": [],
     "params": [],
     "tests": []
   },
   {
-    "_id": "9353a5d5-9e5c-46d6-b473-584da0370f4c",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET Customers",
-    "url": "localhost:8001/c/customers",
-    "method": "GET",
+    "_id": "df14e898-0160-4cac-9d6b-394bef19f656",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "cfb00349-58f5-4606-b9c3-3b859521ff24",
+    "name": "Create quiz - active",
+    "url": "{{host}}:{{port}}/w/quizzes",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-04-17T23:47:40.558Z",
+    "modified": "2023-04-17T23:53:21.766Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"status\": \"active\",\n  \"category\": \"Animals\",\n  \"numOffenses\": 0,\n  \"url\": \"testurl.com\",\n  \"writerId\": 1,\n  \"title\": \"Pets\",\n  \"description\": \"Discussing favorite pets\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "37adc72c-3554-42b4-bd70-7e56120099af",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "cfb00349-58f5-4606-b9c3-3b859521ff24",
+    "name": "Create quiz - draft",
+    "url": "{{host}}:{{port}}/w/quizzes",
+    "method": "POST",
     "sortNum": 20000,
-    "created": "2023-03-29T12:12:14.723Z",
-    "modified": "2023-03-29T12:12:24.417Z",
+    "created": "2023-04-17T23:52:19.545Z",
+    "modified": "2023-04-17T23:53:22.814Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"status\": \"draft\",\n  \"category\": \"Food\",\n  \"numOffenses\": 0,\n  \"url\": \"testfoodurl.com\",\n  \"writerId\": 1,\n  \"title\": \"Food\",\n  \"description\": \"Discussing favorite food\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
-    "_id": "cc8bc863-0411-4b92-bafd-af353df3b23b",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET Most Expensive Products",
-    "url": "localhost:8001/p/mostExpensive",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-03-29T12:13:28.581Z",
-    "modified": "2023-03-29T12:13:48.326Z",
+    "_id": "aa4ccf30-b844-43c5-8424-1e5647bdfca3",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "bbc0468d-8f97-43c4-ae77-f2a7c0a776fb",
+    "name": "Create question - multiple choice",
+    "url": "{{host}}:{{port}}/w/quizzes/1",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-04-17T23:54:15.593Z",
+    "modified": "2023-04-17T23:56:19.847Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"type\": \"multiple-choice\",\n  \"questionText\": \"What is your favorite animal?\",\n  \"responseOptions\": [\n    {\n      \"optionText\": \"Dog\",\n      \"correct\": 1\n    },\n    {\n      \"optionText\": \"Cat\",\n      \"correct\": 0\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "c3009f85-3b73-4c5f-a7aa-ad454cb3f01d",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "bbc0468d-8f97-43c4-ae77-f2a7c0a776fb",
+    "name": "Create question - select all that apply",
+    "url": "{{host}}:{{port}}/w/quizzes/1",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-04-17T23:56:28.664Z",
+    "modified": "2023-04-17T23:57:38.342Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"type\": \"select-all\",\n  \"questionText\": \"What breeds are dogs?\",\n  \"responseOptions\": [\n    {\n      \"optionText\": \"Golden retriver\",\n      \"correct\": 1\n    },\n    {\n      \"optionText\": \"Poodle\",\n      \"correct\": 1\n    },\n    {\n      \"optionText\": \"Calico\",\n      \"correct\": 0\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
