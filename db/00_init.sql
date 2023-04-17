@@ -62,7 +62,7 @@ CREATE TABLE Question
 (
     id            INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     type          VARCHAR(500),
-    dateAdded     DATETIME,
+    dateAdded     DATETIME DEFAULT CURRENT_TIMESTAMP,
     lastUpdated   DATETIME DEFAULT CURRENT_TIMESTAMP
         ON UPDATE CURRENT_TIMESTAMP,
     quiz_id       INT                            NOT NULL,
