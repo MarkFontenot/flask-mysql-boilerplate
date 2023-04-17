@@ -19,6 +19,45 @@ def get_users():
     the_response.mimetype = 'application/json'
     return the_response
 
+@patients.route('/user', methods=['PUT'])
+def create_user():
+    # Get the request body
+    user_data = request.get_json()
+
+    # Extract the necessary fields
+    name = user_data.get('name')
+    age = user_data.get('age')
+    cancer_type_id = user_data.get('cancer_type_id')
+
+    # Insert the new user into the database
+    cursor = db.get_db().cursor()
+    cursor.execute('INSERT INTO user (name, age, cancer_type_id) VALUES (%s, %s, %s)', (name, age, cancer_type_id))
+    db.get_db().commit()
+
+    # Return a success message
+    response = make_response(jsonify({'message': 'User created successfully'}))
+    response.status_code = 201
+    response.mimetype = 'application/json'
+    return response
+
+# Delete a user by id
+@patients.route('/user/<user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM user WHERE user_id = {0}'.format(user_id))
+    user = cursor.fetchone()
+    if user:
+        cursor.execute('DELETE FROM user WHERE user_id = {0}'.format(user_id))
+        db.get_db().commit()
+        the_response = make_response(jsonify({'message': 'User has been deleted.'}))
+        the_response.status_code = 200
+        the_response.mimetype = 'application/json'
+    else:
+        the_response = make_response(jsonify({'message': 'User not found.'}))
+        the_response.status_code = 404
+        the_response.mimetype = 'application/json'
+    return the_response
+
 # Get users with specified cancer type ID
 @patients.route('/user/<cancer_type_id>', methods=['GET'])
 def get_users_by_cancer_type(cancer_type_id):
@@ -121,3 +160,17 @@ def get_users_by_support_group_and_cancer_type(support_group_id, cancer_type_id)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+#Update treatments typically used for a given cancer type for a given user
+@patients.route('/treatment/<cancer_type_id>', methods=['PUT'])
+def update_treatment(cancer_type_id):
+user_id = request.json['user_id']
+updated_treatments = request.json['treatments']
+cursor = db.get_db().cursor()
+for treatment_id in updated_treatments:
+cursor.execute('UPDATE user_treatments SET treatment_id = {0} WHERE user_id = {1} AND cancer_type_id = {2}'.format(treatment_id, user_id, cancer_type_id))
+db.get_db().commit()
+the_response = make_response(jsonify({'message': 'Updated treatments for user {0} with cancer type {1}'.format(user_id, cancer_type_id)}))
+the_response.status_code = 200
+the_response.mimetype = 'application/json'
+return the_response
