@@ -1,20 +1,15 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
-from src import db, app as current_app
+from src import db
 
 
 writers = Blueprint('writers', __name__)
 
-# Helper function to execute DB cursor, for use when DB needs to be changed
-def execute_cursor(sql_query):
-    cursor = db.get_db().cursor()
-    cursor.execute(sql_query)
-    db.get_db().commit()
 
 # Helper function to execute DB cursor, for use when DB does not need to be changed
 def execute_cursor_with_response(sql_query):
     cursor = db.get_db().cursor()
-    cursor.execute(sql_query)    
+    cursor.execute(sql_query)
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -51,20 +46,67 @@ def create_quiz():
     description = the_data['description']
 
     # constructing the query
-    query = '''
-        INSERT INTO Quiz (status, category, numOffenses, url, writerId, title, description)
-        VALUES (#{status}, #{category}, #{numOffenses}, #{url}, #{writerId}, #{title}, #{description})
+    query = f'''
+        INSERT INTO Quiz (status, category, numOffenses, url, writer_id, title, description)
+        VALUES ("{status}", "{category}", {numOffenses}, "{url}", {writerId}, "{title}", "{description}")
     '''
     current_app.logger.info(query)
 
     # executing and committing the insert statement
-    execute_cursor(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
 
     return 'Success!'
 
 # Creates a new question for a quiz
-# TODO
+@writers.route('/quizzes/<int:quiz_id>', methods=['POST'])
+def create_question(quiz_id):
+    # collecting data from request object
+    the_data = request.json
+    current_app.logger.info(the_data)
 
+    # extracting the vars
+    type = the_data['type']
+    questionText = the_data['questionText']
+    responseOptions = the_data['responseOptions']
+
+    # constructing the query
+    query = f'''
+        INSERT INTO Question (type, question_text, quiz_id)
+        VALUES ("{type}", "{questionText}", {quiz_id});
+    '''
+    current_app.logger.info(query)
+
+    # executing and committing the insert statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    question_id = cursor.lastrowid
+    current_app.logger.info("New row id: " + str(question_id))
+
+    create_response_options(question_id, responseOptions)
+
+    db.get_db().commit()
+    return 'Success!'
+
+# Creates the given response options
+def create_response_options(questionId, responseOptions):
+    query = 'INSERT INTO ResponseOptions (question_id, option_text, correct) VALUES'
+    optionList = []
+
+    for option in responseOptions:
+        optionText = option['optionText']
+        correct = option['correct']
+        optionList.append(f'({questionId}, "{optionText}", {correct})')
+
+    options = ",".join(optionList)
+    query += options
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+
+    return None
+    
 # Get statistics behind a particular quiz
 # TODO
 
@@ -81,6 +123,3 @@ def create_quiz():
 # TODO
 
 # View all quizzes belonging to a specific writer
-
-
-
