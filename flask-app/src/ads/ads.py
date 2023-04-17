@@ -29,27 +29,26 @@ def get_ad_campaigns():
 def create_ad_campaign():
     pass
 
-
-@ads.route('/ads/<campaign_id>', methods='GET')
+@ads.route('/ads/<campaign_id>', methods=['GET'])
 def get_campaign_analytics():
     pass
 
-@ads.route('/ads/<campaign_id>', methods='POST')
+@ads.route('/ads/<campaign_id>', methods=['POST'])
 def add_ad_to_campaign():
     pass
 
-@ads.route('/ads/<campaign_id>', methods='PUT')
+@ads.route('/ads/<campaign_id>', methods=['PUT'])
 def edit_ad_campaign():
     pass
 
-@ads.route('/ads/<campaign_id>/<ad_id>', methods='GET')
+@ads.route('/ads/<campaign_id>/<ad_id>', methods=['GET'])
 def get_ad_analytics():
     pass
 
-@ads.route('/ads/<campaign_id>/<ad_id>', methods='PUT')
+@ads.route('/ads/<campaign_id>/<ad_id>', methods=['PUT'])
 def update_advertisement():
     pass
 
-@ads.route('/ads/<campaign_id>/<ad_id>', methods='DELETE')
+@ads.route('/ads/<campaign_id>/<ad_id>', methods=['DELETE'])
 def delete_advertisement():
     pass
