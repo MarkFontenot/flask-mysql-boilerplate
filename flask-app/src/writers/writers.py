@@ -290,3 +290,11 @@ def get_response_options(question_id):
 
 
 # View all quizzes belonging to a specific writer
+@writers.route('/writers/<int:writer_id>/quizzes', methods=['GET'])
+def get_writer_quizzes(writer_id):
+    query = f'''
+        SELECT *
+        FROM Quiz
+        WHERE writer_id = {writer_id}
+    '''
+    return execute_cursor_with_response(query)

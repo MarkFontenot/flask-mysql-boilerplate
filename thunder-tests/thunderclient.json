@@ -524,5 +524,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "c5ccf113-a4b9-4206-960d-1f31ba0a7d2c",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "a900b112-4b69-4bbc-90d7-88f9cfcc4e3e",
+    "name": "Get all of writer 1's quizzes",
+    "url": "{{host}}:{{port}}/w/writers/1/quizzes",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2023-04-18T02:44:13.319Z",
+    "modified": "2023-04-18T02:44:35.939Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "8bceea91-6ab4-4874-957a-02bd3cef02f8",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "a900b112-4b69-4bbc-90d7-88f9cfcc4e3e",
+    "name": "Get all of writer 2's quizzes",
+    "url": "{{host}}:{{port}}/w/writers/2/quizzes",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2023-04-18T02:44:42.169Z",
+    "modified": "2023-04-18T02:44:54.103Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
