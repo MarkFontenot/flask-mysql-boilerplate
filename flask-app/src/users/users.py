@@ -51,7 +51,7 @@ def get_score(quiz_id):
 
 # Get a list of all quizzes the user has taken before
 # TODO unsure if this implementation is correct
-@users.route('/quizzes/<int:quiz_id/history', methods=['GET'])
+@users.route('/quizzes/<int:user_id/history', methods=['GET'])
 def get_history(user_id):
     query = f'''
         SELECT title
@@ -61,6 +61,14 @@ def get_history(user_id):
     return execute_cursor_with_response(query)
 
 # Get the link to a particular quiz
+@users.route('/quizzes/<int:quiz_id', methods=['GET'])
+def get_link(quiz_id):
+    query = f'''
+        SELECT URL
+        FROM Quiz
+        WHERE id = {quiz_id}
+    '''
+    return execute_cursor_with_response(query)
 
 # Creates a new user account
 
