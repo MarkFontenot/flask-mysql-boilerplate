@@ -265,8 +265,19 @@ def delete_question(question_id):
     db.get_db().commit()
 
 
-# Update answer options
-# TODO
+# Delete answer options
+@writers.route('/questions/<int:question_id>/options/<option_text>', methods=['DELETE'])
+def delete_option(question_id, option_text):
+    query = f'''
+        DELETE FROM ResponseOptions
+        WHERE question_id = {question_id} AND option_text = "{option_text}";
+    '''
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+    return {}
+    
 
 # View response options for a question
 @writers.route('/questions/<int:question_id>/options', methods=['GET'])

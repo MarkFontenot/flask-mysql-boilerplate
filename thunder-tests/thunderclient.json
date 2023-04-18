@@ -482,5 +482,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "d1890461-930e-4f36-a5e9-5cf911b9570e",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6bf4046c-80f0-402b-b7fc-4462d0e06259",
+    "name": "Delete option with space",
+    "url": "{{host}}:{{port}}/w/questions/6/options/Washington DC",
+    "method": "DELETE",
+    "sortNum": 120000,
+    "created": "2023-04-18T02:34:58.778Z",
+    "modified": "2023-04-18T02:41:00.254Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "affc7181-0d7f-47d1-b526-c713353605d3",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6bf4046c-80f0-402b-b7fc-4462d0e06259",
+    "name": "Delete option",
+    "url": "{{host}}:{{port}}/w/questions/1/options/dog",
+    "method": "DELETE",
+    "sortNum": 130000,
+    "created": "2023-04-18T02:41:05.119Z",
+    "modified": "2023-04-18T02:41:36.979Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
