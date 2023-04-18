@@ -44,14 +44,13 @@ CREATE TABLE Quiz
     lastUpdated      DATEtime DEFAULT CURRENT_TIMESTAMP
         ON UPDATE CURRENT_TIMESTAMP,
     numOffenses      INT,
-    URL              VARCHAR(1024), --  many security protocols and recommendations state that
-    -- maxQueryStrings on a server should be set to a maximum character limit of 1024
+    URL              VARCHAR(2083),
     statsLastUpdated DATETIME,
     numTimesTaken    INT      DEFAULT 0,
     percentAbove80   INT,
     writer_id        INT                            NOT NULL,
-    title            VARCHAR(50)                    NOT NULL,
-    description      VARCHAR(50),
+    title            VARCHAR(255)                    NOT NULL,
+    description      VARCHAR(255),
 
     FOREIGN KEY (writer_id)
         REFERENCES Writer (id)
@@ -61,7 +60,7 @@ CREATE TABLE Quiz
 CREATE TABLE Question
 (
     id            INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    type          VARCHAR(500),
+    type          VARCHAR(50),
     dateAdded     DATETIME,
     lastUpdated   DATETIME DEFAULT CURRENT_TIMESTAMP
         ON UPDATE CURRENT_TIMESTAMP,
@@ -172,74 +171,3 @@ CREATE TABLE ResponseOptions
     FOREIGN KEY (question_id)
         REFERENCES Question (id)
 );
-
--- Some fake data
--- INSERT INTO Moderator (id, username, FName, LName)
--- VALUES (1, 'mod1', 'Number', 'One'),
---        (2, 'mod2', 'Num', 'Two');
-
--- INSERT INTO User (id, username, FName, LName, email)
--- VALUES (1, 'user1', 'Bob', 'Moss', 'bob@mail.com'),
---        (2, 'user2', 'Alice', 'Lovelace', 'alice@mail.com'),
---        (3, 'user3', 'John', 'Doe', 'john@mail.com');
-
--- INSERT INTO Writer (id, username, FName, LName)
--- VALUES (1, 'writer1', 'Gabrielle', 'Zevin'),
---        (2, 'writer2', 'Kazuo', 'Ishiguro'),
---        (3, 'writer3', 'Amor', 'Towles');
-
--- INSERT INTO Quiz (id, writer_id, title)
--- VALUES (1, 1, 'Pets'),
---        (2, 1, 'State Capitals'),
---        (3, 2, 'Country Capitals');
-
--- INSERT INTO Question (id, type, quiz_id, question_text)
--- VALUES (1, 'select_all', 1, 'What pets do you have?'),
---        (2, 'multiple_choice', 1, 'Which is your favorite?'),
---        (3, 'multiple_choice', 2, 'What is the capital of Massachusetts?'),
---        (4, 'multiple_choice', 2, 'What is the capital of New Hampshire?'),
---        (5, 'multiple_choice', 2, 'What is the capital of Vermont?'),
---        (6, 'multiple_choice', 3, 'What is the capital of USA?'),
---        (7, 'multiple_choice', 3, 'What is the capital of France?');
-
--- INSERT INTO ResponseOptions (question_id, option_text)
--- VALUES (1, 'dog'),
---        (1, 'cat'),
---        (1, 'hamster'),
---        (2, 'dog'),
---        (2, 'cat'),
---        (2, 'hamster'),
---        (3, 'Boston'),
---        (3, 'Atlanta'),
---        (4, 'Concord'),
---        (4, 'Boston'),
---        (5, 'Montpelier'),
---        (5, 'Concord'),
---        (6, 'Washington DC'),
---        (6, 'New York City'),
---        (7, 'Paris'),
---        (7, 'Marseille');
-
--- INSERT INTO Response (id, selection, quiz_id, question_id, user_id)
--- VALUES (1, 'dog', 1, 1, 1),
---        (2, 'cat', 1, 1, 1),
---        (3, 'dog', 1, 2, 1),
---        (4, 'dog', 1, 1, 2),
---        (5, 'cat', 1, 1, 2),
---        (6, 'dog', 1, 2, 2),
---        (7, 'Boston', 2, 3, 2),
---        (8, 'Concord', 2, 4, 2),
---        (9, 'Montpelier', 2, 5, 2),
---        (10, 'Washington DC', 3, 6, 3),
---        (11, 'Paris', 3, 7, 3);
-
--- INSERT INTO ContactedWriters (writer_id, mod_id) VALUE (1, 1);
--- INSERT INTO FlaggedQuizzes (quiz_id, mod_id) VALUE (1, 1);
--- INSERT INTO FlaggedUsers (user_id, mod_id, num_offenses) VALUE (1, 1, 1);
--- INSERT INTO ContactedUsers (user_id, mod_id) VALUE (1, 1);
-
--- INSERT INTO UserQuizzes (user_id, quiz_id)
--- VALUES (1, 1),
---        (2, 1),
---        (2, 2),
---        (3, 3);
