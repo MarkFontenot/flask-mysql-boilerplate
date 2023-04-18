@@ -158,5 +158,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "f0fe67d7-a865-471f-be7b-a1d6f48b0d5b",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6c730d32-07be-4e33-8dcc-5e422c30917f",
+    "name": "Delete quiz 1",
+    "url": "{{host}}:{{port}}/w/quizzes/1/update",
+    "method": "DELETE",
+    "sortNum": 70000,
+    "created": "2023-04-18T00:21:13.795Z",
+    "modified": "2023-04-18T00:21:44.252Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "f1aa896c-d6ce-4540-8cba-03af24934306",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6c730d32-07be-4e33-8dcc-5e422c30917f",
+    "name": "Delete quiz 2",
+    "url": "{{host}}:{{port}}/w/quizzes/2/update",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2023-04-18T00:34:04.359Z",
+    "modified": "2023-04-18T00:34:36.835Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

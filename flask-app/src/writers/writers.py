@@ -125,8 +125,24 @@ def get_quiz_results(quiz_id):
 # Update an existing question's content or answer options
 # TODO
 
+# Update or delete a quiz
+@writers.route('/quizzes/<int:quiz_id>/update', methods=['DELETE', 'PUT'])
+def handle_quiz_update(quiz_id):
+    if request.method == 'DELETE':
+        delete_quiz(quiz_id)
+
+    return {}
+
 # Delete a quiz
-# TODO
+def delete_quiz(quiz_id):
+    query = f'''
+        DELETE FROM Quiz
+        WHERE id = {quiz_id};
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
 
 # View an existing quiz
 # TODO

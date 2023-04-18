@@ -70,6 +70,7 @@ CREATE TABLE Question
 
     FOREIGN KEY (quiz_id)
         REFERENCES Quiz (id)
+        ON DELETE cascade
 );
 
 
@@ -77,17 +78,20 @@ CREATE TABLE Response
 (
     id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     selection   VARCHAR(500),
-    dateAdded   DATETIME,
+    dateAdded   DATETIME DEFAULT CURRENT_TIMESTAMP,
     quiz_id     INT                            NOT NULL,
     question_id INT                            NOT NULL,
     user_id     INT                            NOT NULL,
 
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id),
+        REFERENCES Quiz (id)
+        ON DELETE cascade,
     FOREIGN KEY (question_id)
-        REFERENCES Question (id),
+        REFERENCES Question (id)
+        ON DELETE cascade,
     FOREIGN KEY (user_id)
         REFERENCES User (id)
+        ON DELETE cascade
 );
 
 
@@ -104,7 +108,6 @@ CREATE TABLE ContactedWriters
         REFERENCES Moderator (id)
 );
 
-
 CREATE TABLE FlaggedQuizzes
 (
     quiz_id INT NOT NULL,
@@ -113,7 +116,8 @@ CREATE TABLE FlaggedQuizzes
     PRIMARY KEY (quiz_id, mod_id),
 
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id),
+        REFERENCES Quiz (id)
+        ON DELETE cascade,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -146,7 +150,6 @@ CREATE TABLE ContactedUsers
         REFERENCES Moderator (id)
 );
 
-
 CREATE TABLE UserQuizzes
 (
     user_id INT NOT NULL,
@@ -158,19 +161,19 @@ CREATE TABLE UserQuizzes
         REFERENCES User (id),
     FOREIGN KEY (quiz_id)
         REFERENCES Quiz (id)
+        ON DELETE cascade
 );
-
 
 CREATE TABLE ResponseOptions
 (
     question_id INT NOT NULL,
     option_text VARCHAR(500),
-    correct     BOOLEAN,
 
     PRIMARY KEY (question_id, option_text),
 
     FOREIGN KEY (question_id)
         REFERENCES Question (id)
+        ON DELETE cascade
 );
 
 -- Some fake data
