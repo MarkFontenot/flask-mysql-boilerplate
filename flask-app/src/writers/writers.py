@@ -29,6 +29,17 @@ def get_writers():
     '''
     return execute_cursor_with_response(query)
 
+# View all quizzes belonging to a specific writer
+@writers.route('/writers/<int:writer_id>/quizzes', methods=['GET'])
+def get_writer_quizzes(writer_id):
+    query = f'''
+        SELECT *
+        FROM Quiz
+        WHERE writer_id = {writer_id}
+    '''
+    return execute_cursor_with_response(query)
+
+
 # Creates a new quiz
 @writers.route('/quizzes', methods=['POST'])
 def create_quiz():
@@ -265,6 +276,15 @@ def delete_question(question_id):
     db.get_db().commit()
 
 
+# View response options for a question
+@writers.route('/questions/<int:question_id>/options', methods=['GET'])
+def get_response_options(question_id):
+    query = f'''
+        SELECT * FROM ResponseOptions
+        WHERE question_id = {question_id}
+    '''
+    return execute_cursor_with_response(query)
+
 # Delete answer options
 @writers.route('/questions/<int:question_id>/options/<option_text>', methods=['DELETE'])
 def delete_option(question_id, option_text):
@@ -278,23 +298,3 @@ def delete_option(question_id, option_text):
     db.get_db().commit()
     return {}
     
-
-# View response options for a question
-@writers.route('/questions/<int:question_id>/options', methods=['GET'])
-def get_response_options(question_id):
-    query = f'''
-        SELECT * FROM ResponseOptions
-        WHERE question_id = {question_id}
-    '''
-    return execute_cursor_with_response(query)
-
-
-# View all quizzes belonging to a specific writer
-@writers.route('/writers/<int:writer_id>/quizzes', methods=['GET'])
-def get_writer_quizzes(writer_id):
-    query = f'''
-        SELECT *
-        FROM Quiz
-        WHERE writer_id = {writer_id}
-    '''
-    return execute_cursor_with_response(query)
