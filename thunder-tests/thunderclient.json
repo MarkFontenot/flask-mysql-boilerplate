@@ -116,5 +116,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "d87aaceb-c35c-42f1-aebc-0f3e370b8b27",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6235091c-72ec-466d-9c45-d4d9341dba5a",
+    "name": "Get quiz results 1",
+    "url": "{{host}}:{{port}}/w/quizzes/1/results",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-18T00:05:33.923Z",
+    "modified": "2023-04-18T00:06:51.612Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "42e69942-d0be-484f-8a83-0997d2063d33",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6235091c-72ec-466d-9c45-d4d9341dba5a",
+    "name": "Get quiz results 2",
+    "url": "{{host}}:{{port}}/w/quizzes/2/results",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-18T00:06:57.165Z",
+    "modified": "2023-04-18T00:07:07.877Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

@@ -108,7 +108,16 @@ def create_response_options(questionId, responseOptions):
     return None
     
 # Get statistics behind a particular quiz
-# TODO
+@writers.route('/quizzes/<int:quiz_id>/results', methods=['GET'])
+def get_quiz_results(quiz_id):
+    query = f'''
+        SELECT numTimesTaken, percentAbove80, statsLastUpdated
+        FROM Quiz
+        WHERE id = {quiz_id}
+    '''
+    return execute_cursor_with_response(query)
+
+# TODO: If time, add a PUT route that actually updates the calculations -- might be out of scope for the deadline though
 
 # Update an existing quiz to include or remove questions
 # TODO
