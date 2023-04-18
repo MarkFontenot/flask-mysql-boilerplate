@@ -36,3 +36,4 @@ def search_posts():
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
