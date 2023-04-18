@@ -39,3 +39,20 @@ def get_quiz(quiz_id):
     '''
     return execute_cursor_with_response(query)
 
+# Get the user's final score on a particular quiz
+# TODO how to calculate score?
+# TODO should we remove this feature?
+@users.route('/quizzes/<int:quiz_id/score', methods=['GET'])
+def get_score(quiz_id):
+    query = f'''
+
+    '''
+    return
+
+# Get a list of all quizzes the user has taken before
+
+# Get the link to a particular quiz
+
+# Creates a new user account
+
+# Deletes a particular user account
