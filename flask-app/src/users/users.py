@@ -40,17 +40,24 @@ def get_quiz(quiz_id):
     return execute_cursor_with_response(query)
 
 # Get the user's final score on a particular quiz
-# TODO how to calculate score?
-# TODO should we remove this feature?
+# TODO unsure if this is written correctly
 @users.route('/quizzes/<int:quiz_id/score', methods=['GET'])
-def get_score(quiz_id):
+def get_score(quiz_id, user_id):
     query = f'''
+        SELECT count(question_id) as correct
+        FROM Response JOIN ResponseOptions ON (question_id)
+        WHERE ResponseOptions.correct = true
+              AND user_id = {user_id}
+              AND quiz_id = {quiz_id}
 
+        SELECT ROUND(correct / count(response.selection), 1) AS score
+        FROM correct JOIN Response
+        WHERE user_id = {user_id}
+              AND quiz_id = {quiz_id}
     '''
     return execute_cursor_with_response(query)
 
 # Get a list of all quizzes the user has taken before
-# TODO unsure if this implementation is correct
 @users.route('/users/<int:user_id/history', methods=['GET'])
 def get_history(user_id):
     query = f'''
@@ -114,7 +121,6 @@ def delete_user(user_id):
     db.get_db().commit()
 
 # Updates the username of a particular user
-# TODO unsure if this implementation is correct
 @users.route('/users/<int:user_id/update', methods=['PUT'])
 def update_usert(user_id, new_name):
     query = f'''
@@ -126,6 +132,5 @@ def update_usert(user_id, new_name):
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
-
 
 # TODO all tests for these routes
