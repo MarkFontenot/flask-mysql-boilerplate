@@ -378,5 +378,57 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "cb38c5e7-7e7e-4e4c-8e76-fa7c41d225e3",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "d6422c1b-3808-414b-a189-8aa6e4bb576b",
+    "name": "Update question type",
+    "url": "{{host}}:{{port}}/w/questions/1",
+    "method": "PUT",
+    "sortNum": 110000,
+    "created": "2023-04-18T02:16:59.147Z",
+    "modified": "2023-04-18T02:18:50.112Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"questionText\": \"How many pets do you have?\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "ab6f4501-dc2a-4ba1-9161-4b46fd79e049",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "d6422c1b-3808-414b-a189-8aa6e4bb576b",
+    "name": "Update question text",
+    "url": "{{host}}:{{port}}/w/questions/1",
+    "method": "PUT",
+    "sortNum": 120000,
+    "created": "2023-04-18T02:18:29.373Z",
+    "modified": "2023-04-18T02:18:29.373Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"type\": \"multiple-choice\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

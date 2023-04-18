@@ -213,7 +213,43 @@ def get_quiz_questions(quiz_id):
     return execute_cursor_with_response(query)
 
 
-# Update an existing question's content or answer options
+# Update an existing question's content
+@writers.route('/questions/<int:question_id>', methods=['PUT'])
+def update_question(question_id):
+    the_data = request.json
+
+    query = '''
+        UPDATE Question
+        SET 
+    '''
+
+    updates = []
+
+    # extracting the vars
+    if ('type' in the_data):
+        type = the_data['type'] 
+        updates.append(f'type = "{type}"')
+    
+    if ('questionText' in the_data):
+        questionText = the_data['questionText']
+        updates.append(f'question_text = "{questionText}"')
+
+    if ('quizId' in the_data):
+        quizId = the_data['quizId']
+        updates.append(f'quiz_id = {quizId}')
+
+    query += ",".join(updates)
+    query += f' WHERE id = {question_id};'
+
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+
+
+# Update answer options
 # TODO
 
 # View response options for a question
