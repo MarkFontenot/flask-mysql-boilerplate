@@ -134,16 +134,14 @@ def get_quiz_results(quiz_id):
 
 # TODO: If time, add a PUT route that actually updates the calculations -- might be out of scope for the deadline though
 
-# Update an existing quiz
-# TODO
-
 # Update or delete a quiz
 @writers.route('/quizzes/<int:quiz_id>/update', methods=['DELETE', 'PUT'])
 def handle_quiz_update(quiz_id):
     if request.method == 'DELETE':
         delete_quiz(quiz_id)
-
-    return {}
+        return {}
+    elif request.method == 'PUT':
+        return update_quiz(quiz_id)
 
 # Delete a quiz
 def delete_quiz(quiz_id):
@@ -155,6 +153,55 @@ def delete_quiz(quiz_id):
     cursor.execute(query)
     db.get_db().commit()
 
+# Update quiz
+def update_quiz(quiz_id):
+    the_data = request.json
+
+    query = '''
+        UPDATE Quiz
+        SET 
+    '''
+
+    updates = []
+
+    # extracting the vars
+    if ('status' in the_data):
+        status = the_data['status'] 
+        updates.append(f'status = "{status}"')
+    
+    if ('category' in the_data):
+        category = the_data['category']
+        updates.append(f'category = "{category}"')
+
+    if ('numOffenses' in the_data):
+        numOffenses = the_data['numOffenses']
+        updates.append(f'numOffenses = {numOffenses}')
+
+    if ('url' in the_data):
+        url = the_data['url']
+        updates.append(f'url = "{url}"')
+
+    if ('writerId' in the_data):
+        writerId = the_data['writerId']
+        updates.append(f'writer_id = {writerId}')
+
+    if ('title' in the_data):
+        title = the_data['title']
+        updates.append(f'title = "{title}"')
+
+    if ('description' in the_data):
+        description = the_data['description']
+        updates.append(f'description = "{description}"')   
+
+    query += ",".join(updates)
+    query += f' WHERE id = {quiz_id};'
+
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
 
 # View questions for a quiz
 # TODO

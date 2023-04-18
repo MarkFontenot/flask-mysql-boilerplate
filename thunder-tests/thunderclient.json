@@ -242,5 +242,57 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "69ce5811-8dab-4aa6-af12-b84df50a68de",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6c730d32-07be-4e33-8dcc-5e422c30917f",
+    "name": "Update quiz - one field",
+    "url": "{{host}}:{{port}}/w/quizzes/1/update",
+    "method": "PUT",
+    "sortNum": 90000,
+    "created": "2023-04-18T01:57:02.636Z",
+    "modified": "2023-04-18T01:57:51.218Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"category\": \"Animals\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "4c99a525-a094-4f45-b4bb-6ab0d7b35bf6",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "6c730d32-07be-4e33-8dcc-5e422c30917f",
+    "name": "Update quiz - many fields",
+    "url": "{{host}}:{{port}}/w/quizzes/1/update",
+    "method": "PUT",
+    "sortNum": 100000,
+    "created": "2023-04-18T01:58:14.770Z",
+    "modified": "2023-04-18T01:58:46.384Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"category\": \"Food\",\n  \"status\": \"draft\",\n  \"numOffenses\": 1\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
