@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -51,7 +51,7 @@ def get_score(quiz_id):
 
 # Get a list of all quizzes the user has taken before
 # TODO unsure if this implementation is correct
-@users.route('/quizzes/<int:user_id/history', methods=['GET'])
+@users.route('/users/<int:user_id/history', methods=['GET'])
 def get_history(user_id):
     query = f'''
         SELECT title
@@ -71,5 +71,45 @@ def get_link(quiz_id):
     return execute_cursor_with_response(query)
 
 # Creates a new user account
+@users.route('/users', methods=['POST'])
+def create_account():
+
+    # collecting data from request object
+    the_data = request.json
+    current_app.logger.info(the_data)
+
+    # extracting the vars
+    id = the_data['id']
+    username = the_data['username']
+    FName = the_data['FName']
+    LName = the_data['yearsActive']
+    yearsActive = the_data['yearsActive']
+    numOffenses = the_data['numOffenses']
+
+    # constructing the query
+    query = f'''
+        INSERT INTO User (id, username, FName, LName, yearsActive, numOffenses)
+        VALUES ("{id}", "{username}", "{FName}", "{LName}", "{yearsActive}", "{numOffenses}")
+    '''
+
+    current_app.logger.info(query)
+
+    # executing and committing the insert statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return 'Success!'
+
 
 # Deletes a particular user account
+@users.route('/users/<int:user_id', methods=['DELETE'])
+def delete_account(user_id):
+    query = f'''
+        DELETE FROM Users
+        WHERE id = {user_id};
+
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
