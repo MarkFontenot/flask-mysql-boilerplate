@@ -60,7 +60,14 @@ def create_quiz():
     return 'Success!'
 
 # Creates a new question for a quiz
-@writers.route('/quizzes/<int:quiz_id>', methods=['POST'])
+# View quiz
+@writers.route('/quizzes/<int:quiz_id>', methods=['POST', 'GET'])
+def quizzes(quiz_id):
+    if request.method == 'POST':
+        return create_question(quiz_id)
+    elif request.method == 'GET':
+        return get_quiz(quiz_id)
+
 def create_question(quiz_id):
     # collecting data from request object
     the_data = request.json
@@ -106,6 +113,14 @@ def create_response_options(questionId, responseOptions):
     cursor.execute(query)
 
     return None
+
+# Get a quiz
+def get_quiz(quiz_id):
+    query = f'''
+        SELECT * FROM Quiz
+        WHERE id = {quiz_id}
+    '''
+    return execute_cursor_with_response(query)
     
 # Get statistics behind a particular quiz
 @writers.route('/quizzes/<int:quiz_id>/results', methods=['GET'])
@@ -119,10 +134,7 @@ def get_quiz_results(quiz_id):
 
 # TODO: If time, add a PUT route that actually updates the calculations -- might be out of scope for the deadline though
 
-# Update an existing quiz to include or remove questions
-# TODO
-
-# Update an existing question's content or answer options
+# Update an existing quiz
 # TODO
 
 # Update or delete a quiz
@@ -144,7 +156,13 @@ def delete_quiz(quiz_id):
     db.get_db().commit()
 
 
-# View an existing quiz
+# View questions for a quiz
 # TODO
+
+
+# Update an existing question's content or answer options
+# TODO
+
+# View response options for a question
 
 # View all quizzes belonging to a specific writer
