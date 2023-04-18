@@ -204,7 +204,13 @@ def update_quiz(quiz_id):
     return "Success!"
 
 # View questions for a quiz
-# TODO
+@writers.route('/quizzes/<int:quiz_id>/questions', methods=['GET'])
+def get_quiz_questions(quiz_id):
+    query = f'''
+        SELECT * FROM Question
+        WHERE quiz_id = {quiz_id}
+    '''
+    return execute_cursor_with_response(query)
 
 
 # Update an existing question's content or answer options

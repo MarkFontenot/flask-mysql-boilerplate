@@ -294,5 +294,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "2528115c-7b49-4288-8493-53ebe461625c",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "2e63cb7e-0fd2-45fb-9a84-73e2ef4986a5",
+    "name": "Get Quiz 1 Questions",
+    "url": "{{host}}:{{port}}/w/quizzes/1/questions",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-18T02:03:31.448Z",
+    "modified": "2023-04-18T02:03:47.008Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "8fcb3e80-ea0d-42e7-ad52-4887f279ae0f",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "2e63cb7e-0fd2-45fb-9a84-73e2ef4986a5",
+    "name": "Get Quiz 2 Questions",
+    "url": "{{host}}:{{port}}/w/quizzes/2/questions",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-18T02:06:10.569Z",
+    "modified": "2023-04-18T02:06:25.336Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
