@@ -103,13 +103,29 @@ def create_account():
 
 
 # Deletes a particular user account
-@users.route('/users/<int:user_id', methods=['DELETE'])
-def delete_account(user_id):
+@users.route('/users/<int:user_id/delete', methods=['DELETE'])
+def delete_user(user_id):
     query = f'''
-        DELETE FROM Users
+        DELETE FROM User
         WHERE id = {user_id};
-
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+
+# Updates the username of a particular user
+# TODO unsure if this implementation is correct
+@users.route('/users/<int:user_id/update', methods=['PUT'])
+def update_usert(user_id, new_name):
+    query = f'''
+        UPDATE Users
+        SET
+            username = {new_name}
+        WHERE id = {user_id}
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+
+# TODO all tests for these routes
