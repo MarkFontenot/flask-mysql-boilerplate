@@ -430,5 +430,57 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "802929a3-850b-4bd5-b3c2-1277de8f9056",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "d6422c1b-3808-414b-a189-8aa6e4bb576b",
+    "name": "Delete question 7",
+    "url": "{{host}}:{{port}}/w/questions/7",
+    "method": "DELETE",
+    "sortNum": 130000,
+    "created": "2023-04-18T02:21:43.642Z",
+    "modified": "2023-04-18T02:21:58.853Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"questionText\": \"How many pets do you have?\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "a1a12ff1-3dfb-4109-a81a-a5acde62071f",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "d6422c1b-3808-414b-a189-8aa6e4bb576b",
+    "name": "Delete question 6",
+    "url": "{{host}}:{{port}}/w/questions/6",
+    "method": "DELETE",
+    "sortNum": 140000,
+    "created": "2023-04-18T02:23:05.384Z",
+    "modified": "2023-04-18T02:23:17.545Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"questionText\": \"How many pets do you have?\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

@@ -214,7 +214,14 @@ def get_quiz_questions(quiz_id):
 
 
 # Update an existing question's content
-@writers.route('/questions/<int:question_id>', methods=['PUT'])
+@writers.route('/questions/<int:question_id>', methods=['PUT', 'DELETE'])
+def update_or_delete_question(question_id):
+    if request.method == 'PUT':
+        return update_question(question_id)
+    elif request.method == 'DELETE':
+        delete_question(question_id)
+        return {}
+    
 def update_question(question_id):
     the_data = request.json
 
@@ -247,6 +254,15 @@ def update_question(question_id):
     db.get_db().commit()
 
     return "Success!"
+
+def delete_question(question_id):
+    query = f'''
+        DELETE FROM Question
+        WHERE id = {question_id};
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
 
 
 # Update answer options
