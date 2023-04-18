@@ -47,9 +47,18 @@ def get_score(quiz_id):
     query = f'''
 
     '''
-    return
+    return execute_cursor_with_response(query)
 
 # Get a list of all quizzes the user has taken before
+# TODO unsure if this implementation is correct
+@users.route('/quizzes/<int:quiz_id/history', methods=['GET'])
+def get_history(user_id):
+    query = f'''
+        SELECT title
+        FROM Quiz JOIN User
+        WHERE numTimesTaken > 0
+    '''
+    return execute_cursor_with_response(query)
 
 # Get the link to a particular quiz
 
