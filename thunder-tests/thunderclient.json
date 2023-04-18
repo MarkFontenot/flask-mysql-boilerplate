@@ -336,5 +336,47 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "4ffe964d-6d26-4288-ab0c-5aa353651e75",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "9b6b257d-a509-4954-b30a-925385364f1f",
+    "name": "Get options from question 1",
+    "url": "{{host}}:{{port}}/w/questions/1/options",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-18T02:10:31.299Z",
+    "modified": "2023-04-18T02:11:19.575Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "9905c88d-614a-42ec-a1e3-88c54bff315a",
+    "colId": "8580fe03-77e0-4d12-ab04-fdefd6589f42",
+    "containerId": "9b6b257d-a509-4954-b30a-925385364f1f",
+    "name": "Get options from question 2",
+    "url": "{{host}}:{{port}}/w/questions/2/options",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-04-18T02:11:24.014Z",
+    "modified": "2023-04-18T02:11:56.055Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

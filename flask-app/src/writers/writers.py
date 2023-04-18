@@ -217,5 +217,13 @@ def get_quiz_questions(quiz_id):
 # TODO
 
 # View response options for a question
+@writers.route('/questions/<int:question_id>/options', methods=['GET'])
+def get_response_options(question_id):
+    query = f'''
+        SELECT * FROM ResponseOptions
+        WHERE question_id = {question_id}
+    '''
+    return execute_cursor_with_response(query)
+
 
 # View all quizzes belonging to a specific writer
