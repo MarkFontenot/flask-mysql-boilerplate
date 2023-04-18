@@ -28,3 +28,14 @@ def get_all_quizzes():
         WHEN status = 'active'
         '''
     return execute_cursor_with_response(query)
+
+# Get a particular available quiz with its writer and associated questions
+@users.route('/quizzes/<int:quiz_id>', methods=['GET'])
+def get_quiz(quiz_id):
+    query = f'''
+        SELECT title, username, question_text
+        FROM Quiz JOIN Writer ON Quiz.writer_id = Writer.id 
+             JOIN Question ON Quiz.id = Question.quiz_id
+    '''
+    return execute_cursor_with_response(query)
+
