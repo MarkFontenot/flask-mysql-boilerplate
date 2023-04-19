@@ -15,8 +15,8 @@ def create_post():
     current_app.logger.info(the_data)
 
 
-    postid = the_data['postid']
-    chefid = the_data['chefid']
+    postid = the_data['post_id']
+    chefid = the_data['chef_id']
     title = the_data['title']
     description = the_data['description']
     currentlyAvialable = the_data['currently_available']
