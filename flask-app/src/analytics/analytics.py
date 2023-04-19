@@ -3,14 +3,46 @@ from src import db
 
 analytics = Blueprint('analytics', __name__)
 
-# Gets analytics for all of the current user's posts
-@analytics.route('/analytics', methods=['GET'])
-def get_user_analytics():
-    pass
+# Gets combined analytics for all of a given user's posts
+@analytics.route('/analytics/user/<int:user_id>', methods=['GET'])
+def get_user_analytics(user_id: int):
+    # Get data from DB
+    cursor = db.get_db().cursor()
+    cursor.execute(f'''
+    SELECT likes.NumLikes, comments.NumComments, thoughts.NumTHoughts
+    FROM (SELECT COUNT(*) NumComments FROM ThoughtComments
+    LEFT OUTER JOIN Thought T on ThoughtComments.ThoughtID = T.ThoughtID
+        WHERE T.UserID = {user_id}) comments
+    JOIN
+        (SELECT COUNT(*) NumLikes FROM ThoughtLikes
+            LEFT OUTER JOIN Thought T on ThoughtLikes.ThoughtID = T.ThoughtID
+            WHERE T.UserID = {user_id}) likes ON 1 = 1
+    JOIN 
+        (SELECT COUNT(*) NumThoughts FROM Thought 
+        WHERE UserID = {user_id}) thoughts ON 1 = 1;
+    ''')
 
-@analytics.route('/analytics/<thought_id>', methods=['GET'])
-def get_thought_analytics():
-    pass
+    # JSONify response and return
+    column_headers = [x[0] for x in cursor.description]
+    json_data = [dict(zip(column_headers, row)) for row in cursor.fetchall()]
+    return jsonify(json_data)
+
+
+@analytics.route('/analytics/thought/<int:thought_id>', methods=['GET'])
+def get_thought_analytics(thought_id: int):
+    cursor = db.get_db().cursor()
+    cursor.execute(f'''
+    SELECT likes.NumLikes, comments.NumComments
+    FROM (SELECT COUNT(*) NumComments FROM ThoughtComments tc 
+        WHERE tc.ThoughtID = {thought_id}) comments
+    JOIN (SELECT COUNT(*) NumLikes FROM ThoughtLikes tl 
+        WHERE tl.ThoughtID = {thought_id}) likes ON 1 = 1;
+    ''')
+    
+    # JSONify response and return
+    column_headers = [x[0] for x in cursor.description]
+    json_data = [dict(zip(column_headers, row)) for row in cursor.fetchall()]
+    return jsonify(json_data)
 
 # Get the users that a given user follows
 @analytics.route('/analytics/<int:user_id>/following', methods=['GET'])
