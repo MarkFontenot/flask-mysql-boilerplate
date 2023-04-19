@@ -39,6 +39,6 @@ def create_app():
     app.register_blueprint(ads,         url_prefix='/ads')
     app.register_blueprint(analytics,   url_prefix='/analytics')
     app.register_blueprint(comments,    url_prefix='/comments')
-    app.register_blueprint(thoughts,    url_prefix='/t')
+    app.register_blueprint(thoughts,    url_prefix='/thoughts')
 
     return app

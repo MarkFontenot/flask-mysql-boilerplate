@@ -7,17 +7,20 @@ analytics = Blueprint('analytics', __name__)
 @analytics.route('/user/<int:user_id>', methods=['GET'])
 def get_user_analytics(user_id: int):
     query = f'''
-    SELECT likes.NumLikes, comments.NumComments, thoughts.NumThoughts
-    FROM (SELECT COUNT(*) NumComments FROM ThoughtComments
-    LEFT OUTER JOIN Thought T on ThoughtComments.ThoughtID = T.ThoughtID
-        WHERE T.UserID = {user_id}) comments
-    JOIN
-        (SELECT COUNT(*) NumLikes FROM ThoughtLikes
-            LEFT OUTER JOIN Thought T on ThoughtLikes.ThoughtID = T.ThoughtID
-            WHERE T.UserID = {user_id}) likes ON 1 = 1
-    JOIN 
-        (SELECT COUNT(*) NumThoughts FROM Thought 
-        WHERE UserID = {user_id}) thoughts ON 1 = 1;
+SELECT NumLikes, NumComments, NumThoughts, EarningRate * NumThoughts TotalEarnings
+FROM (SELECT COUNT(*) NumComments FROM ThoughtComments
+LEFT OUTER JOIN Thought T on ThoughtComments.ThoughtID = T.ThoughtID
+    WHERE T.UserID = {user_id}) comments
+JOIN
+    (SELECT COUNT(*) NumLikes FROM ThoughtLikes
+        LEFT OUTER JOIN Thought T on ThoughtLikes.ThoughtID = T.ThoughtID
+        WHERE T.UserID = {user_id}) likes ON 1 = 1
+JOIN
+    (SELECT COUNT(*) NumThoughts FROM Thought
+    WHERE UserID = {user_id}) thoughts ON 1 = 1
+JOIN (SELECT ml.EarningRate from MonetizationLevel ml
+        JOIN User u on ml.MonetizationID = u.MonetizationID
+        WHERE u.UserID = {user_id}) earningRate on 1 = 1;
     '''
     return sql_to_json(execute_sql(query))
 
@@ -25,11 +28,15 @@ def get_user_analytics(user_id: int):
 @analytics.route('/thought/<int:thought_id>', methods=['GET'])
 def get_thought_analytics(thought_id: int):
     query = f'''
-    SELECT likes.NumLikes, comments.NumComments
-    FROM (SELECT COUNT(*) NumComments FROM ThoughtComments tc 
+    SELECT NumLikes, NumComments, earningRate * NumLikes TotalEarnings
+    FROM (SELECT COUNT(*) NumComments FROM ThoughtComments tc
         WHERE tc.ThoughtID = {thought_id}) comments
-    JOIN (SELECT COUNT(*) NumLikes FROM ThoughtLikes tl 
-        WHERE tl.ThoughtID = {thought_id}) likes ON 1 = 1;
+    JOIN (SELECT COUNT(*) NumLikes FROM ThoughtLikes tl
+        WHERE tl.ThoughtID = {thought_id}) likes
+    JOIN (SELECT EarningRate  FROM User u
+          JOIN Thought t ON t.UserID = u.UserID
+          JOIN MonetizationLevel ml ON u.MonetizationID = ml.MonetizationID
+          WHERE t.ThoughtID = {thought_id}) earningRate;
     '''
     return sql_to_json(execute_sql(query))
 
@@ -40,7 +47,7 @@ def get_following(user_id: int) -> Response:
     query = f"""
     SELECT u.username, u.FirstName, u.LastName, uf.FollowTime
     FROM UserFollows uf
-    LEFT JOIN User u ON uf.FollowerID = u.UserID
+    LEFT JOIN User u ON uf.FollowingID = u.UserID
     WHERE uf.FollowerID = {user_id};
     """
     return sql_to_json(execute_sql(query))
