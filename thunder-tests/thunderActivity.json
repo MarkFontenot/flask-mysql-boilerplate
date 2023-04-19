@@ -1,74 +1,5 @@
 [
   {
-    "_id": "4b1a7a2d-b8bb-4641-a128-cfebdf29050c",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:8002/recipes/1",
-    "url": "http://localhost:8002/recipes/1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T03:22:59.369Z",
-    "modified": "2023-04-19T03:24:02.883Z",
-    "headers": [],
-    "params": [],
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "isjson",
-        "value": "[ { \"categoryID\": 5, \"creatorID\": 1, \"date_created\": \"Tue, 18 Apr 2023 20:59:01 GMT\", \"description\": \"This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing.\", \"difficulty\": \"Challenging\", \"originID\": 2, \"recipeID\": 1, \"servings\": 12, \"title\": \"Baklava\" } ]"
-      }
-    ]
-  },
-  {
-    "_id": "a0fc52f2-450a-45fb-8457-18a0d2060cdc",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:8002/recipes?recipeID=1",
-    "url": "http://localhost:8002/recipes?recipeID=1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T03:27:17.352Z",
-    "modified": "2023-04-19T03:27:17.352Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "recipeID",
-        "value": "1",
-        "isPath": false
-      }
-    ],
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "isjson",
-        "value": "[ { \"categoryID\": 5, \"creatorID\": 1, \"date_created\": \"Tue, 18 Apr 2023 20:59:01 GMT\", \"description\": \"This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing.\", \"difficulty\": \"Challenging\", \"originID\": 2, \"recipeID\": 1, \"servings\": 12, \"title\": \"Baklava\" } ]"
-      }
-    ]
-  },
-  {
-    "_id": "67294aae-ba25-43aa-9cf2-5200661595e4",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:8002/recipes",
-    "url": "http://localhost:8002/recipes",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T03:50:14.317Z",
-    "modified": "2023-04-19T03:50:14.317Z",
-    "headers": [],
-    "params": [],
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "isjson",
-        "value": "[ { \"categoryID\": 5, \"creatorID\": 1, \"date_created\": \"Tue, 18 Apr 2023 20:59:01 GMT\", \"description\": \"This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing.\", \"difficulty\": \"Challenging\", \"originID\": 2, \"recipeID\": 1, \"servings\": 12, \"title\": \"Baklava\" } ]"
-      }
-    ]
-  },
-  {
     "_id": "ecfaad07-b8b7-4d7c-ba96-3b3eb377c8f6",
     "colId": "history",
     "containerId": "",
@@ -77,75 +8,33 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-19T03:51:06.572Z",
-    "modified": "2023-04-19T13:48:42.917Z",
+    "modified": "2023-04-19T14:42:55.622Z",
     "headers": [],
     "params": [],
     "tests": [
       {
         "type": "json-query",
-        "custom": "json.description",
+        "custom": "json.[0].description",
         "action": "equal",
-        "value": "This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing."
+        "value": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem."
       },
       {
         "type": "json-query",
-        "custom": "json.date_created",
+        "custom": "json.[0].date_created",
         "action": "equal",
-        "value": "Tue, 18 Apr 2023 20:59:01 GMT"
+        "value": "Fri, 21 Oct 2022 12:57:22 GMT"
       },
       {
         "type": "json-query",
-        "custom": "json.title",
+        "custom": "json.[0].title",
         "action": "equal",
-        "value": "Baklava"
+        "value": "felis"
       },
       {
         "type": "json-query",
-        "custom": "json.servings",
+        "custom": "json.[0].servings",
         "action": "equal",
-        "value": "12"
-      }
-    ]
-  },
-  {
-    "_id": "655aecdd-77a3-436c-bf8a-972a86009dc0",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:8002/cre/recipes/2",
-    "url": "http://localhost:8002/cre/recipes/2",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T03:55:29.769Z",
-    "modified": "2023-04-19T03:55:29.769Z",
-    "headers": [],
-    "params": [],
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "isjson",
-        "value": "[ { \"categoryID\": 5, \"creatorID\": 1, \"date_created\": \"Tue, 18 Apr 2023 20:59:01 GMT\", \"description\": \"This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing.\", \"difficulty\": \"Challenging\", \"originID\": 2, \"recipeID\": 1, \"servings\": 12, \"title\": \"Baklava\" } ]"
-      }
-    ]
-  },
-  {
-    "_id": "e672623d-9ae7-47f2-8799-3c57f144e4ee",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:8002/cre/recipes/3",
-    "url": "http://localhost:8002/cre/recipes/3",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T03:55:40.287Z",
-    "modified": "2023-04-19T03:56:35.937Z",
-    "headers": [],
-    "params": [],
-    "tests": [
-      {
-        "type": "res-body",
-        "custom": "",
-        "action": "equal",
-        "value": "[ { \"categoryID\": 5, \"creatorID\": 1, \"date_created\": \"Tue, 18 Apr 2023 20:59:01 GMT\", \"description\": \"This vegan baklava recipe is a classic Middle Eastern dessert made with layers of crispy phyllo dough, a sweet and nutty filling, and a fragrant honey or maple syrup glaze, making for a delicious and indulgent treat that is perfect for sharing.\", \"difficulty\": \"Challenging\", \"originID\": 2, \"recipeID\": 1, \"servings\": 12, \"title\": \"Baklava\" } ]"
+        "value": "4"
       }
     ]
   },
@@ -158,48 +47,308 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-19T04:07:20.403Z",
-    "modified": "2023-04-19T13:50:26.393Z",
+    "modified": "2023-04-19T14:43:35.940Z",
     "headers": [],
     "params": [],
     "tests": [
       {
         "type": "json-query",
-        "custom": "json.title",
+        "custom": "json.[0].title",
         "action": "equal",
-        "value": "Caprese Salad"
+        "value": "at turpis donec"
       },
       {
         "type": "json-query",
-        "custom": "json.recipeID",
+        "custom": "json.[0].recipeID",
         "action": "equal",
-        "value": "2"
+        "value": "4"
       },
       {
         "type": "json-query",
-        "custom": "json.categoryID",
+        "custom": "json.[0].categoryID",
         "action": "equal",
-        "value": "1"
+        "value": "14"
       },
       {
         "type": "json-query",
-        "custom": "json.difficulty",
+        "custom": "json.[0].difficulty",
         "action": "equal",
         "value": "Easy"
       }
     ]
   },
   {
-    "_id": "d569bd49-09eb-4f1b-ad08-34403c8960e0",
+    "_id": "b5e2da41-e536-4b0a-8dc1-2f264d6bfb9b",
     "colId": "history",
     "containerId": "",
-    "name": "http://localhost:8002/cre/creator/2/following",
-    "url": "http://localhost:8002/cre/creator/2/following",
+    "name": "http://localhost:8002/cre/creator/3/following",
+    "url": "http://localhost:8002/cre/creator/3/following",
     "method": "GET",
     "sortNum": 0,
-    "created": "2023-04-19T04:09:41.162Z",
-    "modified": "2023-04-19T04:09:41.162Z",
+    "created": "2023-04-19T14:33:57.272Z",
+    "modified": "2023-04-19T14:44:46.525Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.[0].criticID",
+        "action": "equal",
+        "value": "57"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": "[ { \"criticID\": 57 } ]"
+      }
+    ]
+  },
+  {
+    "_id": "9f598ad5-0417-40cf-9043-9b6210a38627",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/accounts/creator",
+    "url": "http://localhost:8002/cre/accounts/creator",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-19T14:35:24.022Z",
+    "modified": "2023-04-19T14:45:42.276Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.[0].fName",
+        "action": "equal",
+        "value": "Bastian"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].lName",
+        "action": "equal",
+        "value": "Gollop"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].email",
+        "action": "equal",
+        "value": "bgollop0@hugedomains.com"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[1].email",
+        "action": "equal",
+        "value": "aaggott1@networkadvertising.org"
+      }
+    ]
+  },
+  {
+    "_id": "4588da6d-9768-415d-a1a4-7c0a383a5fb7",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/accounts/creator/3",
+    "url": "http://localhost:8002/cre/accounts/creator/3",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-19T14:46:04.096Z",
+    "modified": "2023-04-19T14:47:06.602Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.[0].creatorID",
+        "action": "equal",
+        "value": "3"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].email",
+        "action": "equal",
+        "value": "mcullinane2@independent.co.uk"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].fName",
+        "action": "equal",
+        "value": "Monti"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].lName",
+        "action": "equal",
+        "value": "Cullinane"
+      }
+    ]
+  },
+  {
+    "_id": "04e1d41a-6217-4f2f-984c-15391042aa7a",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/recipes/20/review",
+    "url": "http://localhost:8002/cre/recipes/20/review",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-19T14:47:38.783Z",
+    "modified": "2023-04-19T14:49:16.296Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.[0].comment",
+        "action": "equal",
+        "value": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].date_reviewed",
+        "action": "equal",
+        "value": "Fri, 09 Sep 2022 23:19:05 GMT"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].stars",
+        "action": "equal",
+        "value": "3"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].criticID",
+        "action": "equal",
+        "value": "24"
+      }
+    ]
+  },
+  {
+    "_id": "fa85fb8c-5e8c-4b9f-83cc-3e8c0c2726fe",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/recipes/27/instructions",
+    "url": "http://localhost:8002/cre/recipes/27/instructions",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-19T14:49:58.944Z",
+    "modified": "2023-04-19T14:50:54.676Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "json-query",
+        "custom": "json.[0].step",
+        "action": "equal",
+        "value": "Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].cookTime",
+        "action": "equal",
+        "value": "489"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[0].prepTime",
+        "action": "equal",
+        "value": "495"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.[1].step",
+        "action": "equal",
+        "value": "Curabitur at ipsum ac tellus semper interdum."
+      }
+    ]
+  },
+  {
+    "_id": "b02188bc-5acd-4866-a924-3989a30e68da",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/recipes/31",
+    "url": "http://localhost:8002/cre/recipes/31",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-04-19T14:53:28.822Z",
+    "modified": "2023-04-19T14:57:05.706Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "_id": "63249ab8-8053-47b5-9c90-d5ad08cca5ac",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/recipes/27",
+    "url": "http://localhost:8002/cre/recipes/27",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-04-19T15:35:53.467Z",
+    "modified": "2023-04-19T15:52:08.772Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n  \"title\": \"salad\"\r\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": ""
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "71763b5e-43eb-4f8a-a9f0-637dcd59969c",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:8002/cre/ingredients",
+    "url": "http://localhost:8002/cre/ingredients",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-19T15:53:38.537Z",
+    "modified": "2023-04-19T15:53:49.865Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Salt\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": ""
+      }
+    ]
   }
 ]
