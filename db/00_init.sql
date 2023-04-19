@@ -68,8 +68,7 @@ CREATE TABLE Question
     question_text VARCHAR(500)                   NOT NULL,
 
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id)
-        ON DELETE cascade
+        REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -83,14 +82,11 @@ CREATE TABLE Response
     user_id     INT                            NOT NULL,
 
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id)
-        ON DELETE cascade,
+        REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (question_id)
-        REFERENCES Question (id)
-        ON DELETE cascade,
+        REFERENCES Question (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (user_id)
-        REFERENCES User (id)
-        ON DELETE cascade
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -115,8 +111,7 @@ CREATE TABLE FlaggedQuizzes
     PRIMARY KEY (quiz_id, mod_id),
 
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id)
-        ON DELETE cascade,
+        REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -159,8 +154,7 @@ CREATE TABLE UserQuizzes
     FOREIGN KEY (user_id)
         REFERENCES User (id),
     FOREIGN KEY (quiz_id)
-        REFERENCES Quiz (id)
-        ON DELETE cascade
+        REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE ResponseOptions
@@ -172,6 +166,5 @@ CREATE TABLE ResponseOptions
     PRIMARY KEY (question_id, option_text),
 
     FOREIGN KEY (question_id)
-        REFERENCES Question (id)
-        ON DELETE cascade
+        REFERENCES Question (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

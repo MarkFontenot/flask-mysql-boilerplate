@@ -24,7 +24,7 @@ def execute_cursor_with_response(sql_query):
 @writers.route('/writers', methods=['GET'])
 def get_writers():
     query = '''
-        SELECT id, username, FName, LName, yearsActive
+        SELECT id as value, username as label
         FROM Writer
     '''
     return execute_cursor_with_response(query)
@@ -66,9 +66,10 @@ def create_quiz():
     # executing and committing the insert statement
     cursor = db.get_db().cursor()
     cursor.execute(query)
+    quiz_id = cursor.lastrowid
     db.get_db().commit()
 
-    return 'Success!'
+    return str(quiz_id)
 
 # Creates a new question for a quiz
 # View quiz
@@ -102,7 +103,8 @@ def create_question(quiz_id):
     question_id = cursor.lastrowid
     current_app.logger.info("New row id: " + str(question_id))
 
-    create_response_options(question_id, responseOptions)
+    if (len(responseOptions) > 0):
+        create_response_options(question_id, responseOptions)
 
     db.get_db().commit()
     return 'Success!'
@@ -220,6 +222,7 @@ def get_quiz_questions(quiz_id):
     query = f'''
         SELECT * FROM Question
         WHERE quiz_id = {quiz_id}
+        ORDER BY id 
     '''
     return execute_cursor_with_response(query)
 
@@ -276,11 +279,35 @@ def delete_question(question_id):
     db.get_db().commit()
 
 
-# View response options for a question
-@writers.route('/questions/<int:question_id>/options', methods=['GET'])
+# View response options for a question 
+# Add a response for a question
+@writers.route('/questions/<int:question_id>/options', methods=['GET', 'POST'])
+def handle_question_option(question_id):
+    if (request.method == 'GET'):
+        return get_response_options(question_id)
+    elif (request.method == 'POST'):
+        return create_response_option(question_id)
+    
+# TODO: Add a test for this
+def create_response_option(question_id):
+    the_data = request.json
+    optionText = the_data['optionText']
+    correct = the_data['correct']
+    query = f'''
+        INSERT INTO ResponseOptions (question_id, option_text, correct) VALUES
+        ({question_id}, "{optionText}", {correct})
+    '''
+    current_app.logger.info(query)
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+    return "Success!"
+    
+
 def get_response_options(question_id):
     query = f'''
-        SELECT * FROM ResponseOptions
+        SELECT option_text as label, correct, question_id FROM ResponseOptions
         WHERE question_id = {question_id}
     '''
     return execute_cursor_with_response(query)
@@ -297,4 +324,6 @@ def delete_option(question_id, option_text):
     cursor.execute(query)
     db.get_db().commit()
     return {}
+
+
     
