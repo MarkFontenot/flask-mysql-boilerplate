@@ -7,7 +7,7 @@ analytics = Blueprint('analytics', __name__)
 @analytics.route('/user/<int:user_id>', methods=['GET'])
 def get_user_analytics(user_id: int):
     query = f'''
-    SELECT likes.NumLikes, comments.NumComments, thoughts.NumTHoughts
+    SELECT likes.NumLikes, comments.NumComments, thoughts.NumThoughts
     FROM (SELECT COUNT(*) NumComments FROM ThoughtComments
     LEFT OUTER JOIN Thought T on ThoughtComments.ThoughtID = T.ThoughtID
         WHERE T.UserID = {user_id}) comments
@@ -35,7 +35,7 @@ def get_thought_analytics(thought_id: int):
 
 
 # Get the users that a given user follows
-@analytics.route('/<int:user_id>/following', methods=['GET'])
+@analytics.route('/user/<int:user_id>/following', methods=['GET'])
 def get_following(user_id: int) -> Response:
     query = f"""
     SELECT u.username, u.FirstName, u.LastName, uf.FollowTime
@@ -47,7 +47,7 @@ def get_following(user_id: int) -> Response:
 
 
 # Adds the posted user as a follower of the given user
-@analytics.route('/<int:user_id>/following', methods=['POST'])
+@analytics.route('/user/<int:user_id>/following', methods=['POST'])
 def follow_user(user_id: int) -> Response:
     try:
         followingID: int = int(request.form['followingID'])
@@ -64,7 +64,7 @@ def follow_user(user_id: int) -> Response:
 
 
 # The posted user unfollows the given user
-@analytics.route('/<int:user_id>/following', methods=['DELETE'])
+@analytics.route('/user/<int:user_id>/following', methods=['DELETE'])
 def unfollow_user(user_id: int) -> Response:
     try:
         followingID: int = int(request.form['followingID'])
@@ -80,7 +80,7 @@ def unfollow_user(user_id: int) -> Response:
 
 
 # Gets the given user's followers
-@analytics.route('/<int:user_id>/followers', methods=['GET'])
+@analytics.route('/user/<int:user_id>/followers', methods=['GET'])
 def get_followers(user_id: int) -> Response:
     # Get data from DB
     query = f"""
