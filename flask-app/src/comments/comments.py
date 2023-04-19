@@ -32,10 +32,10 @@ def update_comment(comment_id: int) -> Response:
         ''')
         
         # Return OK
-        return make_response(200)
+        return "Success", 200
     except: 
         # Return error
-        return make_response(400)
+        return "Could not update comment", 400
 
 
 # Deletes a comment with the given CommentID
@@ -50,6 +50,6 @@ def delete_comment(comment_id: int):
         ''')
 
         # Return OK
-        return make_response(200)
+        return "Success", 200
     except:
-        return make_response(400)
+        return "Could not delete comment", 400
