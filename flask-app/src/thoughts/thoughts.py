@@ -5,14 +5,14 @@ from src.utils import execute_sql, sql_to_json
 
 thoughts = Blueprint('thoughts', __name__)
 
-@thoughts.route('/thoughts', methods=['GET'])
+@thoughts.route('/', methods=['GET'])
 def get_feed() -> Response:
     query = f'''
     SELECT * FROM Thought
     '''
     return sql_to_json(execute_sql(query))
 
-@thoughts.route('/thoughts', methods=['POST'])
+@thoughts.route('/', methods=['POST'])
 def post_thought() -> Response:
     try:
         data = request.get_json()
@@ -34,7 +34,7 @@ def post_thought() -> Response:
     # '''
     # return sql_to_json(execute_sql(show_create))
 
-@thoughts.route('/thoughts/<int:thought_id>', methods=['GET'])
+@thoughts.route('/<int:thought_id>', methods=['GET'])
 def get_thought(thought_id : int) -> Response:
     query = f'''
     SELECT * FROM Thought 
@@ -42,7 +42,7 @@ def get_thought(thought_id : int) -> Response:
     '''
     return sql_to_json(execute_sql(query))
 
-@thoughts.route('/thoughts/<thought_id>', methods=['PUT'])
+@thoughts.route('/<thought_id>', methods=['PUT'])
 def update_thought(thought_id : int) -> Response:
     try:
         data = request.get_json()
@@ -65,7 +65,7 @@ def update_thought(thought_id : int) -> Response:
     # '''
     # return sql_to_json(execute_sql(show_create))
     
-@thoughts.route('/thoughts/<thought_id>', methods=['DELETE'])
+@thoughts.route('/<thought_id>', methods=['DELETE'])
 def delete_thought(thought_id : int) -> Response:
     try:
         delete_thought = f'''
@@ -80,7 +80,7 @@ def delete_thought(thought_id : int) -> Response:
     except: 
         return "Could not delete thought", 400
 
-@thoughts.route('/thoughts/<thought_id>/comments', methods=['GET'])
+@thoughts.route('/<thought_id>/comments', methods=['GET'])
 def get_thought_comments(thought_id):
     query = f'''
     SELECT * FROM 
@@ -91,7 +91,7 @@ def get_thought_comments(thought_id):
     '''
     return sql_to_json(execute_sql(query))
 
-@thoughts.route('/thoughts/<thought_id>/comments', methods=['POST'])
+@thoughts.route('/<thought_id>/comments', methods=['POST'])
 def post_comment(thought_id):
     try:
         data = request.get_json()
