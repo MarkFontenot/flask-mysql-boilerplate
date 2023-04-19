@@ -1,21 +1,19 @@
-# noinspection SqlCurrentSchemaInspectionForFile
-
-DROP DATABASE cancer_patient_platform
-
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- Create the database
-CREATE DATABASE cancer_patient_platform;
-
+DROP SCHEMA IF EXISTS cancer_patient_platform;
+CREATE SCHEMA IF NOT EXISTS cancer_patient_platform;
 
 -- Use the database
 USE cancer_patient_platform;
 
-
 -- Create the Cancer Type table
 CREATE TABLE cancer_type (
  cancer_type_id INT NOT NULL AUTO_INCREMENT,
- name VARCHAR(50) NOT NULL,
- description VARCHAR(255),
+ name VARCHAR(500) NOT NULL,
+ description VARCHAR(500),
  PRIMARY KEY (cancer_type_id)
 );
 
@@ -24,12 +22,12 @@ CREATE TABLE user (
  user_id INT NOT NULL AUTO_INCREMENT,
  first_name VARCHAR(50) NOT NULL,
  last_name VARCHAR(50) NOT NULL,
- occupation VARCHAR(100) NOT NULL,
+ occupation VARCHAR(500) NOT NULL,
  birth_date DATE NOT NULL,
  gender VARCHAR(50) NOT NULL,
  city VARCHAR(100) NOT NULL,
  state VARCHAR(50) NOT NULL,
- cancer_type_id INT NOT NULL,
+ cancer_type_id INT,
  email_1 VARCHAR(50) NOT NULL,
  email_2 VARCHAR(50),
  phone_1 VARCHAR(50) NOT NULL,
@@ -42,7 +40,7 @@ CREATE TABLE user (
 CREATE TABLE treatment(
  treatment_id INT NOT NULL AUTO_INCREMENT,
  name VARCHAR(100) NOT NULL,
- description VARCHAR(255),
+ description VARCHAR(500),
  PRIMARY KEY (treatment_id)
 );
 
@@ -59,8 +57,8 @@ CREATE TABLE support_group_leader (
 CREATE TABLE support_group (
  support_group_id INT NOT NULL AUTO_INCREMENT,
  group_leader_id INT NOT NULL,
- name VARCHAR(50) NOT NULL,
- location VARCHAR(50),
+ name VARCHAR(500) NOT NULL,
+ location VARCHAR(100),
  capacity INT,
  PRIMARY KEY (support_group_id),
  FOREIGN KEY (group_leader_id) REFERENCES support_group_leader(group_leader_id)
@@ -69,8 +67,8 @@ CREATE TABLE support_group (
 -- Create the Support Resource table
 CREATE TABLE support_resource (
  resource_id INT NOT NULL AUTO_INCREMENT,
- name VARCHAR(50) NOT NULL,
- organization VARCHAR(50),
+ name VARCHAR(500) NOT NULL,
+ organization VARCHAR(500),
  first_name VARCHAR(50),
  last_name VARCHAR(50),
  email VARCHAR(50),
@@ -82,7 +80,7 @@ CREATE TABLE support_resource (
 -- Create the Symptom table
 CREATE TABLE symptom (
 symptom_id INT NOT NULL AUTO_INCREMENT,
-name VARCHAR(100) NOT NULL,
+name VARCHAR(500) NOT NULL,
 description VARCHAR(500) NOT NULL,
 PRIMARY KEY (symptom_id)
 );
@@ -93,7 +91,7 @@ user_id INT NOT NULL,
 symptom_id INT NOT NULL,
 start_date DATE NOT NULL,
 end_date DATE,
-severity VARCHAR(50),
+severity VARCHAR(500),
 PRIMARY KEY (symptom_id),
 FOREIGN KEY (symptom_id) REFERENCES symptom(symptom_id),
 FOREIGN KEY (user_id) REFERENCES user(user_id)
@@ -121,7 +119,7 @@ CREATE TABLE typically_treated_with(
 CREATE TABLE makes_connection (
 user_id_1 INT NOT NULL,
 user_id_2 INT NOT NULL,
-relationship VARCHAR(100) NOT NULL,
+relationship VARCHAR(500) NOT NULL,
 FOREIGN KEY (user_id_1) REFERENCES user(user_id) ON DELETE CASCADE,
 FOREIGN KEY (user_id_2) REFERENCES user(user_id) ON DELETE CASCADE
 );
@@ -131,7 +129,7 @@ CREATE TABLE medical_professional (
 professional_id INT NOT NULL AUTO_INCREMENT,
 first_name VARCHAR(50) NOT NULL,
 last_name VARCHAR(50) NOT NULL,
-specialty VARCHAR(100) NOT NULL,
+specialty VARCHAR(500) NOT NULL,
 treatment_id INT,
 PRIMARY KEY (professional_id),
 FOREIGN KEY (treatment_id) REFERENCES treatment(treatment_id)
@@ -157,7 +155,7 @@ FOREIGN KEY (professional_id) REFERENCES medical_professional(professional_id)
 -- Create the Medication table
 CREATE TABLE medication (
 medication_id INT NOT NULL AUTO_INCREMENT,
-name VARCHAR(100) NOT NULL,
+name VARCHAR(500) NOT NULL,
 description VARCHAR(500),
 PRIMARY KEY (medication_id)
 );
@@ -206,3 +204,8 @@ support_group_id INT NOT NULL,
 PRIMARY KEY (meeting_number, support_group_id),
 FOREIGN KEY (support_group_id) REFERENCES support_group(support_group_id)
 );
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
