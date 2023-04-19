@@ -1,4 +1,4 @@
-from flask import Blueprint, Response, request, jsonify, make_response
+from flask import Blueprint, Response, request
 from src.utils import sql_to_json, execute_sql
 
 analytics = Blueprint('analytics', __name__)
