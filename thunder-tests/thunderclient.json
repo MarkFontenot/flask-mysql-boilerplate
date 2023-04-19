@@ -40,5 +40,33 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "262d9cc8-b131-49ff-baab-5b610a74712e",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "get_categories",
+    "url": "localhost:8001/cre/categories",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-19T02:54:07.923Z",
+    "modified": "2023-04-19T02:54:18.796Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "acd34751-5ff3-4bde-a13e-0b8e8c2b49ca",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "get_origins",
+    "url": "localhost:8001/cre/origins",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-19T02:54:23.438Z",
+    "modified": "2023-04-19T02:54:33.694Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
