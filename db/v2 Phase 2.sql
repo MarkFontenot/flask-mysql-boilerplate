@@ -160,30 +160,30 @@ INSERT INTO FoodTag(post_id,tag_name) VALUES ('hfo669891937','Onions - White');
 INSERT INTO FoodTag(post_id,tag_name) VALUES ('lav921517714','Sour Cream');
 
 create table DynamoMealsV2.Orders (
-	order_id VARCHAR(50) PRIMARY KEY,
+	order_id int PRIMARY KEY AUTO_INCREMENT,
 	post_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
-	time_ordered VARCHAR(50) NOT NULL,
+	create_timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
 	accepted VARCHAR(50) NOT NULL,
 	CONSTRAINT fk_7 foreign key (post_id) REFERENCES Posts (post_id) ON UPDATE cascade ON DELETE cascade,
 	CONSTRAINT fk_8 foreign key (consumer_id) REFERENCES Consumers (consumer_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('l1f8q3m2y0h3','rzr196044484','consumer-4115839819','5:08 AM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('t5v3s3v1v0n3','cnw352274004','consumer-6230596171','2:47 AM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('t8x1x9n6a2v4','rst248404468','consumer-8765991669','8:39 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('i0m5q4l9x9e1','yxh438557827','consumer-8624772349','11:21 AM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('e2e8k2a3a3d5','jkt408438930','consumer-2858977612','6:23 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('w9a6o9r2j0z4','wfn922984184','consumer-9311283308','2:16 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('m7n8v1a5m2h7','mfy402387120','consumer-3444503604','10:29 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('v2v0w9p4m2c3','hdg991375001','consumer-8603585179','12:37 AM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('u8p7g7z8k8g0','pde019813118','consumer-8055338372','10:10 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('a8g5g5q5j2k4','zuv343504096','consumer-7287119693','12:30 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('y6z3d0p5e0s3','hfo669891937','consumer-0231141671','12:01 PM','true');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('j5g4t0a8x9n8','lav921517714','consumer-6783275722','5:27 AM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (1,'rzr196044484','consumer-4115839819','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (2,'cnw352274004','consumer-6230596171','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (3,'rst248404468','consumer-8765991669','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (4,'yxh438557827','consumer-8624772349','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (5,'jkt408438930','consumer-2858977612','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (6,'wfn922984184','consumer-9311283308','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (7,'mfy402387120','consumer-3444503604','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (8,'hdg991375001','consumer-8603585179','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (9,'pde019813118','consumer-8055338372','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (10,'zuv343504096','consumer-7287119693','false');
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (11,'hfo669891937','consumer-0231141671','false'); 
+INSERT INTO Orders(order_id,post_id,consumer_id,accepted) VALUES (12,'lav921517714','consumer-6783275722','false');
 
 create table DynamoMealsV2.PostReviews (
-	post_review_id VARCHAR(50) PRIMARY KEY,
+	post_review_id int PRIMARY KEY AUTO_INCREMENT,
 	post_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
 	rating INT NOT NULL,
@@ -192,18 +192,18 @@ create table DynamoMealsV2.PostReviews (
 	CONSTRAINT fk_10 foreign key (consumer_id) REFERENCES Consumers (consumer_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('kc482gyj853','rzr196044484','consumer-4115839819',4,'Organized 4th generation architecture');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('wn658zok336','cnw352274004','consumer-6230596171',4,'Compatible content-based model');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('zm268jci756','rst248404468','consumer-8765991669',2,'Balanced fault-tolerant open system');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('pl204ziy304','yxh438557827','consumer-8624772349',4,'Pre-emptive multimedia infrastructure');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('wj341vgt739','jkt408438930','consumer-2858977612',4,'Phased impactful encryption');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('ix931uhu257','wfn922984184','consumer-9311283308',3,'Future-proofed interactive architecture');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('me168tnm215','mfy402387120','consumer-3444503604',5,'User-centric radical groupware');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('pd469bwg847','hdg991375001','consumer-8603585179',3,'Proactive holistic success');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('mp069awr669','pde019813118','consumer-8055338372',3,'Automated methodical artificial intelligence');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('dm885abt852','zuv343504096','consumer-7287119693',4,'Fundamental maximized help-desk');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('um732lro047','hfo669891937','consumer-0231141671',3,'Intuitive directional installation');
-INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES ('sq591tno319','lav921517714','consumer-6783275722',5,'Progressive impactful support');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (1,'rzr196044484','consumer-4115839819',4,'Organized 4th generation architecture');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (2,'cnw352274004','consumer-6230596171',4,'Compatible content-based model');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (3,'rst248404468','consumer-8765991669',2,'Balanced fault-tolerant open system');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (4,'yxh438557827','consumer-8624772349',4,'Pre-emptive multimedia infrastructure');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (5,'jkt408438930','consumer-2858977612',4,'Phased impactful encryption');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (6,'wfn922984184','consumer-9311283308',3,'Future-proofed interactive architecture');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (7,'mfy402387120','consumer-3444503604',5,'User-centric radical groupware');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (8,'hdg991375001','consumer-8603585179',3,'Proactive holistic success');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (9,'pde019813118','consumer-8055338372',3,'Automated methodical artificial intelligence');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (10,'zuv343504096','consumer-7287119693',4,'Fundamental maximized help-desk');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (11,'hfo669891937','consumer-0231141671',3,'Intuitive directional installation');
+INSERT INTO PostReviews(post_review_id,post_id,consumer_id,rating,description) VALUES (12,'lav921517714','consumer-6783275722',5,'Progressive impactful support');
 
 create table DynamoMealsV2.ChefReview (
 	chef_review_id VARCHAR(50) PRIMARY KEY,
@@ -276,7 +276,7 @@ INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,descripti
 
 create table DynamoMealsV2.Deliveries (
 	delivery_id VARCHAR(50) PRIMARY KEY,
-	order_id VARCHAR(50) NOT NULL,
+	order_id int NOT NULL,
 	driver_id VARCHAR(50) NOT NULL,
 	expected_pickup VARCHAR(50),
 	expected_delivery VARCHAR(50),
@@ -286,15 +286,15 @@ create table DynamoMealsV2.Deliveries (
 	CONSTRAINT fk_18 foreign key (driver_id) REFERENCES Drivers (driver_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('8EthhGm8WX','l1f8q3m2y0h3','driver-7602000741','9:09 PM','11:26 AM','69878 Pennsylvania Alley','93 Victoria Plaza');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('jaTdijq9Gc','t5v3s3v1v0n3','driver-0044649772','2:51 PM','6:30 PM','29354 Macpherson Pass','090 Morningstar Pass');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('NLbtnmenV1','t8x1x9n6a2v4','driver-1262688841','12:10 AM','9:34 AM','49 Homewood Road','5991 Pankratz Point');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('zEcTtGpJoK','i0m5q4l9x9e1','driver-5135519555','1:22 PM','12:56 PM','050 Quincy Pass','21276 Twin Pines Drive');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('lbT0vLjH1O','e2e8k2a3a3d5','driver-5835394224','4:20 AM','3:36 PM','6195 Shopko Center','71 Manley Parkway');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('tELSdYmc1H','w9a6o9r2j0z4','driver-5957762684','3:09 PM','2:34 PM','25968 Bashford Place','2067 Menomonie Way');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('rwT4aCN2Ro','m7n8v1a5m2h7','driver-0327100641','3:25 PM','2:51 AM','08 American Ash Trail','98750 Acker Road');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('xsW3yLvXWj','v2v0w9p4m2c3','driver-3584323207','3:58 AM','9:50 PM','0895 Hooker Alley','009 Ryan Avenue');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('0j5i44tK5G','u8p7g7z8k8g0','driver-4113262432','6:56 AM','4:08 PM','513 Calypso Way','3818 Westerfield Point');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('XTE7MKxeAl','a8g5g5q5j2k4','driver-2833491848','6:07 AM','11:31 AM','65 Arrowood Plaza','83 Fremont Street');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('2Wx2BrOf6k','y6z3d0p5e0s3','driver-3703669094','3:15 PM','4:04 PM','6 Burning Wood Place','44855 Farmco Alley');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('CoX516DeFs','j5g4t0a8x9n8','driver-4546280011','1:19 AM','9:47 PM','17526 Boyd Court','48342 Comanche Junction');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('8EthhGm8WX',1,'driver-7602000741','9:09 PM','11:26 AM','69878 Pennsylvania Alley','93 Victoria Plaza');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('jaTdijq9Gc',2,'driver-0044649772','2:51 PM','6:30 PM','29354 Macpherson Pass','090 Morningstar Pass');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('NLbtnmenV1',3,'driver-1262688841','12:10 AM','9:34 AM','49 Homewood Road','5991 Pankratz Point');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('zEcTtGpJoK',4,'driver-5135519555','1:22 PM','12:56 PM','050 Quincy Pass','21276 Twin Pines Drive');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('lbT0vLjH1O',5,'driver-5835394224','4:20 AM','3:36 PM','6195 Shopko Center','71 Manley Parkway');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('tELSdYmc1H',6,'driver-5957762684','3:09 PM','2:34 PM','25968 Bashford Place','2067 Menomonie Way');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('rwT4aCN2Ro',7,'driver-0327100641','3:25 PM','2:51 AM','08 American Ash Trail','98750 Acker Road');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('xsW3yLvXWj',8,'driver-3584323207','3:58 AM','9:50 PM','0895 Hooker Alley','009 Ryan Avenue');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('0j5i44tK5G',9,'driver-4113262432','6:56 AM','4:08 PM','513 Calypso Way','3818 Westerfield Point');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('XTE7MKxeAl',10,'driver-2833491848','6:07 AM','11:31 AM','65 Arrowood Plaza','83 Fremont Street');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('2Wx2BrOf6k',11,'driver-3703669094','3:15 PM','4:04 PM','6 Burning Wood Place','44855 Farmco Alley');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('CoX516DeFs',12,'driver-4546280011','1:19 AM','9:47 PM','17526 Boyd Court','48342 Comanche Junction');

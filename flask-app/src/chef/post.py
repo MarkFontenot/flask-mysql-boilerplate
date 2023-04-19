@@ -3,7 +3,13 @@ import json
 from src import db
 # from src.consumer import consumer
 
+<<<<<<< HEAD
 chef = Blueprint('chef', __name__)
+=======
+
+chef = Blueprint('chef', __name__)
+
+>>>>>>> dd48b69b2dfda3d442856ad9295aff10ba929a16
 
 # Get all the products from the database
 @chef.route('/chef', methods=['POST'])
@@ -31,7 +37,7 @@ def create_post():
     query += currentlyAvialable + '", "'
     query += expectedTime + '", "'
     query += needDelivery + '", '
-    query += price + ')'
+    query += str(price) + ')'
     current_app.logger.info(query)
 
 
