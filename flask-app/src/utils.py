@@ -18,4 +18,5 @@ def execute_sql(query: str):
     """
     cursor = db.get_db().cursor()
     cursor.execute(query)
+    db.get_db().commit()
     return cursor
