@@ -118,7 +118,7 @@ create table DynamoMealsV2.Posts (
 	post_id VARCHAR(50) PRIMARY KEY,
 	chef_id VARCHAR(50) NOT NULL,
 	title VARCHAR(50),
-	description VARCHAR(50),
+	description VARCHAR(400),
 	currently_available VARCHAR(50) NOT NULL,
 	expected_time VARCHAR(50),
 	need_delivery VARCHAR(50) NOT NULL,
