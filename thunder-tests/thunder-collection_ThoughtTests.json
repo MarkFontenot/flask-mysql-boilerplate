@@ -1,0 +1,195 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ThoughtTests",
+    "dateExported": "2023-04-19T15:02:21.039Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4acd81cf-afc6-44de-8b59-870348ced2db",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Get ThoughtID",
+            "url": "http://127.0.0.1:8001/t/thoughts/6",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-19T14:47:05.464Z",
+            "modified": "2023-04-19T14:51:45.625Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "e1fb68f2-63d2-4aac-8b92-ee9bd3df4d73",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Get Thought",
+            "url": "http://127.0.0.1:8001/t/thoughts",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-04-19T14:47:16.303Z",
+            "modified": "2023-04-19T14:47:16.303Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "fb23e01f-b9b4-41c8-864f-943d0f125420",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Post Thought",
+            "url": "http://127.0.0.1:8001/t/thoughts",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-04-19T14:47:23.264Z",
+            "modified": "2023-04-19T14:47:23.264Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\": \"Medium Cheddar\",\n  \"userID\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "67c509ee-f7db-4591-a7d4-3da587d84e18",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Update Thought",
+            "url": "http://127.0.0.1:8001/t/thoughts/6",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-04-19T14:51:17.701Z",
+            "modified": "2023-04-19T14:52:19.207Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\":\"Why was the cat wearing a hat?\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "6641d8eb-d3c5-48e6-8ea0-190fffe0bb24",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Delete Thought",
+            "url": "http://127.0.0.1:8001/t/thoughts/51",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-04-19T14:53:35.827Z",
+            "modified": "2023-04-19T14:55:11.988Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "istype",
+                    "value": "string"
+                }
+            ]
+        },
+        {
+            "_id": "cc67ef93-43d0-46cb-b8ec-01c01ea7756d",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Get Thought Comments",
+            "url": "http://127.0.0.1:8001/t/thoughts/8/comments",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-04-19T14:57:33.818Z",
+            "modified": "2023-04-19T15:00:51.504Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "8401304f-bec6-4325-8e43-075120dc7c3f",
+            "colId": "ebac9ebb-afac-4273-ae5b-01ea389f3441",
+            "containerId": "",
+            "name": "Post Thought Comment",
+            "url": "http://127.0.0.1:8001/t/thoughts/8/comments",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-04-19T15:01:10.479Z",
+            "modified": "2023-04-19T15:01:10.479Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\":\"this is super insightful!\",\n  \"userID\":7\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        }
+    ]
+}
