@@ -1,6 +1,6 @@
 # Some set up for the application 
 
-from flask import Flask, jsonify, make_response
+from flask import Flask
 from flaskext.mysql import MySQL
 
 # create a MySQL object that we will use in other parts of the API
@@ -28,12 +28,6 @@ def create_app():
     @app.route("/")
     def welcome():
         return "<h1>ShowerThoughts: Where Your Showers Have Thoughts?</h1>"
-    
-    @app.errorhandler(Exception)
-    def handle_exception(e: Exception):
-        """Return JSON instead of HTML for HTTP errors."""
-        # note: this is actually bad security, but helps for debugging
-        return make_response(jsonify({"exception": str(e)}), 400)
 
     # Import the various routes
     from src.ads.ads                    import ads

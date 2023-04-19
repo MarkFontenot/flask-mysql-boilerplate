@@ -1,5 +1,4 @@
-from flask import Blueprint, make_response, request, jsonify, Response
-from src import db
+from flask import Blueprint, request, Response
 from src.utils import execute_sql, sql_to_json
 
 comments = Blueprint('comments', __name__)
@@ -20,7 +19,7 @@ def update_comment(comment_id: int) -> Response:
     try:
         statement = f'''
         UPDATE ThoughtComments
-        SET Content = {request.form['content']}
+        SET Content = "{request.form['content']}"
         WHERE CommentID = {comment_id}
         '''
         execute_sql(statement)
