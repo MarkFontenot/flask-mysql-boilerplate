@@ -31,8 +31,10 @@ def create_app():
 
     # Import the various routes
     from src.consumer.search import consumer
+    from src.chef.orders import chef
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(consumer, url_prefix='/co')
+    app.register_blueprint(chef, url_prefix='/ch')
 
     return app
