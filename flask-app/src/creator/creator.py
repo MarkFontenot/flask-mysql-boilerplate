@@ -65,6 +65,56 @@ def get_recipes_id(recipeID):
         json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
 
+# Deletes the recipe with the given id 
+@creator.route('/recipes/<recipeID>', methods=['DELETE'])
+def del_recipes_id(recipeID):
+    cursor = db.get_db().cursor()
+    query = '''
+    DELETE FROM Recipes
+    WHERE recipeID = {0};
+    '''.format(recipeID)
+
+    cursor.execute(query)
+    the_response = make_response()
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+# Updates the name of the recipe with the given id 
+@creator.route('/recipes/<recipeID>', methods=['PUT'])
+def put_recipes_id(recipeID):
+    cursor = db.get_db().cursor()
+    title = request.form.get('title')
+
+    query = '''
+    UPDATE Recipes
+    SET title = '{0}'
+    WHERE recipeID = {1};
+    '''.format(title, recipeID)
+
+    cursor.execute(query)
+    the_response = make_response()
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+# Creates a new ingredient 
+@creator.route('/ingredients', methods=['POST'])
+def post_ingredient():
+    cursor = db.get_db().cursor()
+
+    body = request.get_json()
+    name = body['name']
+    query = '''
+    insert into Ingredients (name) values ('{0}');
+    '''.format(name)
+
+    cursor.execute(query)
+    the_response = make_response()
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
 # Gets all recipes for the given user 
 @creator.route('/creator/<creatorID>/recipes', methods=['GET'])
 def get_creator_public_recipes(creatorID):
