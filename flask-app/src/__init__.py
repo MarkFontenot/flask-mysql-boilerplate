@@ -43,8 +43,8 @@ def create_app():
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(ads,         url_prefix='/ads')
-    app.register_blueprint(analytics,   url_prefix='/an')
-    app.register_blueprint(comments,    url_prefix='/c')
+    app.register_blueprint(analytics,   url_prefix='/analytics')
+    app.register_blueprint(comments,    url_prefix='/comments')
     app.register_blueprint(thoughts,    url_predix='/t')
 
     return app
