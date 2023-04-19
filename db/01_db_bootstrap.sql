@@ -66,6 +66,15 @@ insert into treatment (treatment_id, name, description) values (18, 'amiodarone 
 insert into treatment (treatment_id, name, description) values (19, 'Cetirizine HCl', 'Closure of esophagostomy');
 insert into treatment (treatment_id, name, description) values (20, 'MEPROBAMATE', 'Division of joint capsule, ligament, or cartilage, elbow');
 
+
+-- Support Group Leaders table
+insert into support_group_leader (group_leader_id, first_name, last_name, email) values (1, 'Raimund', 'Musla', 'rmusla0@devhub.com');
+insert into support_group_leader (group_leader_id, first_name, last_name, email) values (2, 'Dorena', 'Baraja', 'dbaraja1@blogtalkradio.com');
+insert into support_group_leader (group_leader_id, first_name, last_name, email) values (3, 'Hesther', 'Byfield', 'hbyfield2@arizona.edu');
+insert into support_group_leader (group_leader_id, first_name, last_name, email) values (4, 'Rogerio', 'Eastabrook', 'reastabrook3@biblegateway.com');
+insert into support_group_leader (group_leader_id, first_name, last_name, email) values (5, 'Dwayne', 'Pelham', 'dpelham4@theatlantic.com');
+
+
 -- #Support group table
 insert into support_group (support_group_id, group_leader_id, name, location, capacity) values (1, 3, 'Justino Thwaite', null, 16);
 insert into support_group (support_group_id, group_leader_id, name, location, capacity) values (2, 4, 'Gaston Grimsell', 'Coimbra', 12);
@@ -253,6 +262,23 @@ insert into member_of (support_group_id, user_id) values (7, 19);
 insert into member_of (support_group_id, user_id) values (1, 5);
 insert into member_of (support_group_id, user_id) values (6, 4);
 
+-- Meeting table
+insert into meeting (meeting_number, support_group_id) values (1, 6);
+insert into meeting (meeting_number, support_group_id) values (2, 7);
+insert into meeting (meeting_number, support_group_id) values (3, 1);
+insert into meeting (meeting_number, support_group_id) values (4, 4);
+insert into meeting (meeting_number, support_group_id) values (5, 5);
+insert into meeting (meeting_number, support_group_id) values (6, 2);
+insert into meeting (meeting_number, support_group_id) values (7, 3);
+insert into meeting (meeting_number, support_group_id) values (8, 5);
+insert into meeting (meeting_number, support_group_id) values (9, 2);
+insert into meeting (meeting_number, support_group_id) values (10, 3);
+insert into meeting (meeting_number, support_group_id) values (11, 7);
+insert into meeting (meeting_number, support_group_id) values (12, 6);
+insert into meeting (meeting_number, support_group_id) values (13, 1);
+insert into meeting (meeting_number, support_group_id) values (14, 4);
+insert into meeting (meeting_number, support_group_id) values (15, 3);
+
 -- #Supported by table
 -- insert into supported_by (resource_id, user_id) values ('5', '7');
 -- insert into supported_by (resource_id, user_id) values ('4', '6');
@@ -261,21 +287,3 @@ insert into member_of (support_group_id, user_id) values (6, 4);
 -- insert into supported_by (resource_id, user_id) values ('2', '15');
 -- insert into supported_by (resource_id, user_id) values ('1', '2');
 -- insert into supported_by (resource_id, user_id) values ('6', '11');
-
--- #Meeting table
--- insert into meeting (meeting_number, support_group_id) values (1, '6');
--- insert into meeting (meeting_number, support_group_id) values (2, '7');
--- insert into meeting (meeting_number, support_group_id) values (3, '1');
--- insert into meeting (meeting_number, support_group_id) values (4, '4');
--- insert into meeting (meeting_number, support_group_id) values (5, '5');
--- insert into meeting (meeting_number, support_group_id) values (6, '2');
--- insert into meeting (meeting_number, support_group_id) values (7, '3');
--- insert into meeting (meeting_number, support_group_id) values (8, '5');
--- insert into meeting (meeting_number, support_group_id) values (9, '2');
--- insert into meeting (meeting_number, support_group_id) values (10, '3');
--- insert into meeting (meeting_number, support_group_id) values (11, '7');
--- insert into meeting (meeting_number, support_group_id) values (12, '6');
--- insert into meeting (meeting_number, support_group_id) values (13, '1');
--- insert into meeting (meeting_number, support_group_id) values (14, '4');
--- insert into meeting (meeting_number, support_group_id) values (15, '3');
-
