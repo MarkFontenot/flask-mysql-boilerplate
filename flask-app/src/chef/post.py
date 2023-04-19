@@ -3,9 +3,7 @@ import json
 from src import db
 # from src.consumer import consumer
 
-
-chef = Blueprint('chefs', __name__)
-
+chef = Blueprint('chef', __name__)
 
 # Get all the products from the database
 @chef.route('/chef', methods=['POST'])
