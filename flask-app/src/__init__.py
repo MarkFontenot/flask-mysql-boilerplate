@@ -1,6 +1,6 @@
 # Some set up for the application 
 
-from flask import Flask
+from flask import Flask, jsonify, make_response
 from flaskext.mysql import MySQL
 
 # create a MySQL object that we will use in other parts of the API
@@ -27,7 +27,13 @@ def create_app():
     # Add a default route
     @app.route("/")
     def welcome():
-        return "<h1>Welcome to the 3200 boilerplate app</h1>"
+        return "<h1>ShowerThoughts: Where Your Showers Have Thoughts?</h1>"
+    
+    @app.errorhandler(Exception)
+    def handle_exception(e: Exception):
+        """Return JSON instead of HTML for HTTP errors."""
+        # note: this is actually bad security, but helps for debugging
+        return make_response(jsonify({"exception": str(e)}), 400)
 
     # Import the various routes
     from src.ads.ads                    import ads
@@ -36,7 +42,7 @@ def create_app():
     from src.thoughts.thoughts          import thoughts
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(ads,         url_prefix='/ad')
+    app.register_blueprint(ads,         url_prefix='/ads')
     app.register_blueprint(analytics,   url_prefix='/an')
     app.register_blueprint(comments,    url_prefix='/c')
     app.register_blueprint(thoughts,    url_predix='/t')
