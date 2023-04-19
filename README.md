@@ -22,3 +22,15 @@ This repo contains a  setup for spinning up 3 Docker containers:
 4. In a terminal or command prompt, navigate to the folder with the `docker-compose.yml` file.  
 5. Build the images with `docker compose build`
 6. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`.
+
+---
+
+## How to setup the AppSmith Site
+
+1. With the docker containers running, navigate to `localhost:8080` and create or log into an AppSmith account.
+2. On the AppSmith homepage, click the three dots next to the 'NEW' button and select 'Import'.
+3. Choose 'Import from Git repository' and paste the URL of the desired respository.
+    - For ShowerThoughts, use `git@github.com:LoganMorneault/showerthoughts-appsmith.git`.
+4. Click `Generate Key` and navigate through the next menu.
+    - Because you're not pushing, you don't need to worry about generating a key.
+5. Enjoy ShowerThoughts :D
