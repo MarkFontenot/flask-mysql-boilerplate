@@ -17,7 +17,7 @@ def execute_cursor_with_response(sql_query):
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
-    return the_response
+    return jsonify(the_response)
 
 # Get a list of all available quizzes by their title
 @users.route('/quizzes/all', methods=['GET'])
@@ -25,7 +25,7 @@ def get_all_quizzes():
     query = f'''
         SELECT title
         FROM Quiz
-        WHEN status = 'active'
+        WHERE status = 'active'
         '''
     return execute_cursor_with_response(query)
 
