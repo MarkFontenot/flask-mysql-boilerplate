@@ -118,7 +118,7 @@ create table DynamoMealsV2.Posts (
 	post_id VARCHAR(50) PRIMARY KEY,
 	chef_id VARCHAR(50) NOT NULL,
 	title VARCHAR(50),
-	description VARCHAR(50),
+	description VARCHAR(400),
 	currently_available VARCHAR(50) NOT NULL,
 	expected_time VARCHAR(50),
 	need_delivery VARCHAR(50) NOT NULL,
@@ -164,22 +164,23 @@ create table DynamoMealsV2.Orders (
 	post_id VARCHAR(50) NOT NULL,
 	consumer_id VARCHAR(50) NOT NULL,
 	time_ordered VARCHAR(50) NOT NULL,
+	accepted VARCHAR(50) NOT NULL,
 	CONSTRAINT fk_7 foreign key (post_id) REFERENCES Posts (post_id) ON UPDATE cascade ON DELETE cascade,
 	CONSTRAINT fk_8 foreign key (consumer_id) REFERENCES Consumers (consumer_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('l1f8q3m2y0h3','rzr196044484','consumer-4115839819','5:08 AM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('t5v3s3v1v0n3','cnw352274004','consumer-6230596171','2:47 AM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('t8x1x9n6a2v4','rst248404468','consumer-8765991669','8:39 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('i0m5q4l9x9e1','yxh438557827','consumer-8624772349','11:21 AM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('e2e8k2a3a3d5','jkt408438930','consumer-2858977612','6:23 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('w9a6o9r2j0z4','wfn922984184','consumer-9311283308','2:16 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('m7n8v1a5m2h7','mfy402387120','consumer-3444503604','10:29 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('v2v0w9p4m2c3','hdg991375001','consumer-8603585179','12:37 AM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('u8p7g7z8k8g0','pde019813118','consumer-8055338372','10:10 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('a8g5g5q5j2k4','zuv343504096','consumer-7287119693','12:30 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('y6z3d0p5e0s3','hfo669891937','consumer-0231141671','12:01 PM');
-INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered) VALUES ('j5g4t0a8x9n8','lav921517714','consumer-6783275722','5:27 AM');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('l1f8q3m2y0h3','rzr196044484','consumer-4115839819','5:08 AM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('t5v3s3v1v0n3','cnw352274004','consumer-6230596171','2:47 AM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('t8x1x9n6a2v4','rst248404468','consumer-8765991669','8:39 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('i0m5q4l9x9e1','yxh438557827','consumer-8624772349','11:21 AM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('e2e8k2a3a3d5','jkt408438930','consumer-2858977612','6:23 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('w9a6o9r2j0z4','wfn922984184','consumer-9311283308','2:16 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('m7n8v1a5m2h7','mfy402387120','consumer-3444503604','10:29 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('v2v0w9p4m2c3','hdg991375001','consumer-8603585179','12:37 AM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('u8p7g7z8k8g0','pde019813118','consumer-8055338372','10:10 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('a8g5g5q5j2k4','zuv343504096','consumer-7287119693','12:30 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('y6z3d0p5e0s3','hfo669891937','consumer-0231141671','12:01 PM','true');
+INSERT INTO Orders(order_id,post_id,consumer_id,time_ordered,accepted) VALUES ('j5g4t0a8x9n8','lav921517714','consumer-6783275722','5:27 AM','true');
 
 create table DynamoMealsV2.PostReviews (
 	post_review_id VARCHAR(50) PRIMARY KEY,
