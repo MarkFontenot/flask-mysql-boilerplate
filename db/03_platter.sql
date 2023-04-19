@@ -35,8 +35,8 @@ alter table Following add foreign key (creatorID) references Recipe_Creator(crea
 
 
 CREATE TABLE Categories (
-    course ENUM('Appetizer', 'Entree', 'Dessert'),
-    dietType ENUM('Vegan', 'Vegetarian', 'Dairy-free', 'Gluten-free', 'Low-carb'),
+    course varchar(50) not null,
+    dietType varchar(50) not null,
     categoryID int not null AUTO_INCREMENT,
     PRIMARY KEY (categoryID)
 );
@@ -95,7 +95,8 @@ CREATE TABLE Recipe_Ingredients
     amount       decimal,
     unit         varchar(20),
     ingredientID int,
-    recipeID     int
+    recipeID     int,
+    PRIMARY KEY (ingredientID, recipeID)
 );
 alter table Recipe_Ingredients add foreign key (ingredientID) references Ingredients(ingredientID) ON DELETE RESTRICT ON UPDATE CASCADE;
 alter table Recipe_Ingredients add foreign key (recipeID) references Recipes(recipeID) ON DELETE CASCADE ON UPDATE CASCADE;

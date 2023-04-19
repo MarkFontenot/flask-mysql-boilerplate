@@ -68,5 +68,114 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "a5c6209a-d9c7-482f-91b1-baca9e205927",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "new_origin",
+    "url": "localhost:8001/cre/origins",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-19T04:11:30.672Z",
+    "modified": "2023-04-19T12:12:19.060Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"origin_region\": \"Italy\",\n  \"origin_description\": \"Traditional Italian food.\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6e9b8f8c-129d-4120-af41-0e22623d517b",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "get_ingredients",
+    "url": "localhost:8001/cre/ingredients",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-19T12:22:03.939Z",
+    "modified": "2023-04-19T12:22:16.222Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "78f20c91-25e1-4739-b9c8-b361c7b2338e",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "new_ingredient",
+    "url": "localhost:8001/cre/ingredients",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-04-19T12:22:31.604Z",
+    "modified": "2023-04-19T12:56:30.052Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ingredient_nme\": \"Olive oil\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3968f62c-7b23-40bf-a6be-d207670e17e6",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "add_recipe_ingredient",
+    "url": "localhost:8001/cre/recipes/1/ingredients",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-04-19T14:10:13.552Z",
+    "modified": "2023-04-19T14:15:58.684Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ingredientID\": \"1\",\n  \"amount\": 4,\n  \"unit\": \"Tsp\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7fae28d5-83de-4d04-9a52-e05670cdfb5b",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "delete_recipe_ingredient",
+    "url": "localhost:8001/cre/recipes/1/ingredients",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2023-04-19T14:25:18.024Z",
+    "modified": "2023-04-19T14:25:37.156Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ingredientID\": \"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "06a43962-95e4-4bce-9753-6b95db00148c",
+    "colId": "5bab8604-9135-4cc4-99a2-227e7011d403",
+    "containerId": "",
+    "name": "new_recipe",
+    "url": "localhost:8001/cre/recipes",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-19T15:12:15.395Z",
+    "modified": "2023-04-19T15:15:14.682Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"creatorID\": 1,\n  \"originID\": 1,\n  \"categoryID\": 1,\n  \"prep_time\": 30,\n  \"cook_time\": 30,\n  \"title\": \"Spaghetti\",\n  \"description\": \"Spaghetti with tomato sauce\",\n  \"difficulty\": \"Easy\",\n  \"servings\": 4\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
