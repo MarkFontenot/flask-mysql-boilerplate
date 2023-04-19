@@ -9,7 +9,7 @@ services:
     
     # Set up the web server according to the Dockerfile inside the api/ folder
     build: flask-app/
-    container_name: web
+    container_name: web2
     # connect the src folder in on the host machine to the code folder in the container. 
     # note that the code folder in contaier is the working directory (see DockerFile).
     volumes: ['./flask-app:/code', './secrets:/secrets'] 
@@ -19,7 +19,7 @@ services:
 
     # map host port 8001 to container port 4000 (see the EXPOSE command in api/Dockerfile)
     ports:
-      - "8001:4000"
+      - "8002:4000"
 
     links:
       - db
@@ -29,7 +29,7 @@ services:
   db:
     # We are using the base image of MySQL v.8
     image: mysql:8
-    container_name: db
+    container_name: db2
     volumes:
       # anything in (or mounted in) /docker-entrypoint-initdb.d in the container 
       # will automatically be executed when the container is created
@@ -37,7 +37,7 @@ services:
 
     ports:
       # mapping host port 3200 to container port 3306
-      - 3200:3306
+      - 3201:3306
 
     restart: unless-stopped
     
@@ -59,10 +59,10 @@ services:
   # configure the AppSmith container (borrowed directly from Appsmith)
   appsmith:
     image: index.docker.io/appsmith/appsmith-ce
-    container_name: appsmith
+    container_name: appsmith2
     ports:
-      - "8080:80"
-      - "4443:443"
+      - "8081:80"
+      - "4444:443"
     volumes:
       - ./stacks:/appsmith-stacks
     restart: unless-stopped
