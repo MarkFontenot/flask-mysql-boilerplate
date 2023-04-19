@@ -36,3 +36,35 @@ def list_orders():
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
+# Get all the products from the database
+@chef.route('/chef', methods=['POST'])
+def create_post():
+   
+    the_data = request.json
+
+    chefid = the_data['chef_id']
+    title = the_data['title']
+    description = the_data['description']
+    currentlyAvialable = the_data['currently_available']
+    expectedTime = the_data['expected_time']
+    needDelivery = the_data['need_delivery']
+    price = the_data['price']
+
+
+    query = 'insert into Posts (chef_id, title, description, currently_available, expected_time, need_delivery, price) values ("'
+    query += chefid + '", "'
+    query += title + '", "'
+    query += description + '", "'
+    query += currentlyAvialable + '", "'
+    query += expectedTime + '", "'
+    query += needDelivery + '", "'
+    query += '$' + str(price) + '")'
+
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    db.get_db().commit()
+
+
+    return 'Posted!'

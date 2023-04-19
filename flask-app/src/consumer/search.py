@@ -239,7 +239,7 @@ def get_test():
     cursor = db.get_db().cursor()
 
     # # use cursor to query the database for a list of products
-    cursor.execute(f"""SELECT * FROM PostReviews WHERE consumer_id = 'consumer-8055338372'""")
+    cursor.execute(f"""SELECT * FROM Posts WHERE chef_id = 'chef-0306640423'""")
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
