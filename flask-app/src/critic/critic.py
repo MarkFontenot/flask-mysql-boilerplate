@@ -338,7 +338,7 @@ def post_following(id):
 
     cursor = db.get_db().cursor()
     cursor.execute(query)
-    db.get_db.commit()
+    db.get_db().commit()
 
     return 'Success'
 
@@ -354,6 +354,35 @@ def delete_following(id):
     
     cursor = db.get_db().cursor()
     cursor.execute(query)
-    db.get_db.commit()
+    db.get_db().commit()
 
     return 'Success'
+
+
+@critic.route('/bookmarks/<id>', methods=['GET'])
+def get_bookmarks(id):
+    cursor = db.get_db().cursor()
+    query = f'''
+        SELECT R.title, CONCAT(RC.fName, ' ', RC.lName) as fullName, R.recipeID FROM Bookmarks B
+            JOIN Recipes R  on R.recipeID = B.recipeID
+            JOIN Recipe_Creator RC on RC.creatorID = R.creatorID
+            JOIN Recipe_Critic C on B.criticID = C.criticID
+        WHERE C.criticID={id};
+    '''
+    cursor.execute(query)
+       # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
