@@ -33,7 +33,7 @@ def create_post():
     query += currentlyAvialable + '", "'
     query += expectedTime + '", "'
     query += needDelivery + '", '
-    query += price + ')'
+    query += str(price) + ')'
     current_app.logger.info(query)
 
 
