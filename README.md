@@ -1,5 +1,5 @@
 # Phase 3: MySQL + Dynamo Meals Boilerplate Project
-
+Overview:
 Our project is a food delivery and social media application, currently we support two types of users to interact with each other, consumers and chefs. The application includes a GitHub repository, which supports creating a post from the chef's end, searching for a post, as well as looking at placed orders. Our databse has 13 tables. We can only modify two tables, posts and orders and they are done by executing post.py and orders.py in our local appsmith.
 
 
