@@ -28,29 +28,15 @@
     "tests": []
   },
   {
-    "_id": "adce9b3a-dc6e-4e1d-bdc4-e43b166a1f60",
-    "colId": "history",
-    "containerId": "",
-    "name": "lcoahost:8001/u/quizzes/quiz_id",
-    "url": "lcoahost:8001/u/quizzes/quiz_id",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-04-19T19:59:09.855Z",
-    "modified": "2023-04-19T19:59:09.855Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "8cadcc12-bfb5-40fb-ad8a-150ec2f67d6a",
     "colId": "history",
     "containerId": "",
     "name": "lcoahost:8001/u/quizzes/1",
-    "url": "lcoahost:8001/u/quizzes/1",
+    "url": "localhost:8001/u/quizzes/1",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-19T19:59:17.284Z",
-    "modified": "2023-04-19T19:59:17.284Z",
+    "modified": "2023-04-20T01:28:54.271Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -92,22 +78,15 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-19T20:01:44.988Z",
-    "modified": "2023-04-19T22:48:04.470Z",
+    "modified": "2023-04-20T02:03:45.982Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"id\" : 500,\n  \"username\" : \"EpicGamer32\",\n  \"FName\" : \"Epic\",\n  \"LName\" : \"Gamer\",\n  \"numOffenses\" : 2,\n  \"email\" : \"321@123.com\"\n}",
+      "raw": "{\n  \"id\" : 35,\n  \"username\" : \"WaterFilter\",\n  \"FName\" : \"Quail\",\n  \"LName\" : \"Bird\",\n  \"numOffenses\" : 0,\n  \"email\" : \"bbirdie@yahoo.com\"\n}",
       "form": []
     },
-    "tests": [
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "200"
-      }
-    ]
+    "tests": []
   },
   {
     "_id": "c32df2f5-0cc9-433f-8d70-0dd4dc04224d",
@@ -196,11 +175,11 @@
     "colId": "history",
     "containerId": "",
     "name": "{{host}}:{{port}}/u/users/3/delete",
-    "url": "{{host}}:{{port}}/u/users/3/delete",
+    "url": "{{host}}:{{port}}/u/users/1/delete",
     "method": "DELETE",
     "sortNum": 0,
     "created": "2023-04-20T00:56:15.654Z",
-    "modified": "2023-04-20T01:20:30.904Z",
+    "modified": "2023-04-20T01:28:06.720Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -228,7 +207,54 @@
     "method": "PUT",
     "sortNum": 0,
     "created": "2023-04-20T01:12:13.244Z",
-    "modified": "2023-04-20T01:12:13.244Z",
+    "modified": "2023-04-20T01:35:44.253Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "a3ae1fd4-f4bc-40f5-99ac-e5952f3f3525",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{host}}:{{port}}/u/users/",
+    "url": "{{host}}:{{port}}/u/users/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-20T01:55:34.155Z",
+    "modified": "2023-04-20T01:55:34.155Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\" : 33,\n  \"username\" : \"Slimecicle\",\n  \"FName\" : \"Charlie\",\n  \"LName\" : \"Slime\",\n  \"numOffenses\" : 1,\n  \"email\" : \"goopin@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "81e88917-042e-4071-9bcc-ad5652aa05e6",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{host}}:{{port}}/u/quizzes/2",
+    "url": "{{host}}:{{port}}/u/quizzes/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-20T02:05:33.632Z",
+    "modified": "2023-04-20T02:05:33.632Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c6c5dab1-cca3-4006-b11b-97c0fb3831ef",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{host}}:{{port}}/u/quizzes/3",
+    "url": "{{host}}:{{port}}/u/quizzes/3",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-20T02:06:07.885Z",
+    "modified": "2023-04-20T02:06:07.885Z",
     "headers": [],
     "params": [],
     "tests": []

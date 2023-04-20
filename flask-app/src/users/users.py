@@ -126,7 +126,7 @@ def delete_user(user_id):
 @users.route('/users/<int:user_id>/<int:new_name>/update', methods=['PUT'])
 def update_usert(user_id, new_name):
     query = f'''
-        UPDATE Users
+        UPDATE User
         SET
             username = {new_name}
         WHERE id = {user_id}
