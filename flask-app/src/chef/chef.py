@@ -24,7 +24,6 @@ def list_orders():
 
     column_headers = [x[0] for x in cursor.description]
 
-    # putting column headers together with data
     json_data = []
 
     # fetch all the data from the cursor
