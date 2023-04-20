@@ -30,7 +30,6 @@ def list_orders():
     theData = cursor.fetchall()
 
     # for each of the rows, zip the data elements together with
-    # the column headers. 
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
 
