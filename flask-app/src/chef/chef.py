@@ -142,7 +142,7 @@ def get_chef_reviews():
     cursor = db.get_db().cursor()
 
     # # use cursor to query the database for a list of products
-    cursor.execute(f"""SELECT cr.rating, cr.description, u.username FROM ChefReviews cr
+    cursor.execute(f"""SELECT cr.rating, cr.description, u.username FROM ChefReview cr
                        JOIN Users u ON cr.reviewer_id = u.user_id
                        WHERE cr.chef_id = '{chef_id}'""")
 
@@ -203,7 +203,7 @@ def get_deliveries():
                        JOIN Users u ON dr.user_id = u.user_id
                        JOIN Orders o ON o.order_id = d.order_id
                        JOIN Posts p ON p.post_id = o.post_id
-                       WHERE p.chef_id = '{str(chef_id)}'""")
+                       WHERE p.chef_id = \'{str(chef_id)}\'""")
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
