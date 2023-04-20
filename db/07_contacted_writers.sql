@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO ContactedWriters(writer_id,mod_id) VALUES (1,1);
 INSERT INTO ContactedWriters(writer_id,mod_id) VALUES (4,2);

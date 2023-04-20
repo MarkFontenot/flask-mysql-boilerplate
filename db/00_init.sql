@@ -1,7 +1,7 @@
--- DROP DATABASE QuizDB;
-CREATE DATABASE QuizDB;
+-- DROP DATABASE quizdb;
+CREATE DATABASE quizdb;
 SHOW DATABASES;
-USE QuizDB;
+USE quizdb;
 
 
 CREATE TABLE Moderator
@@ -25,7 +25,7 @@ CREATE TABLE Writer
 
 CREATE TABLE User
 (
-    id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    user_id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     username    VARCHAR(50)                    NOT NULL,
     FName       VARCHAR(50)                    NOT NULL,
     LName       VARCHAR(50)                    NOT NULL,

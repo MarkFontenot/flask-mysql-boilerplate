@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO Question(id,type,dateAdded,lastUpdated,quiz_id,question_text) VALUES (1,'multiple-choice','2028-11-26 04:59:34','2026-06-21 04:02:41',24,'ftmuy');
 INSERT INTO Question(id,type,dateAdded,lastUpdated,quiz_id,question_text) VALUES (2,'multiple-choice','2023-08-20 12:48:22','2023-07-11 18:24:33',26,'behok');

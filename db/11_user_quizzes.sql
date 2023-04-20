@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO UserQuizzes(user_id,quiz_id) VALUES (16,11);
 INSERT INTO UserQuizzes(user_id,quiz_id) VALUES (5,4);

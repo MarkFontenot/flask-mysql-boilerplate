@@ -21,7 +21,7 @@ def create_app():
         '/secrets/db_root_password.txt').readline()
     app.config['MYSQL_DATABASE_HOST'] = 'db'
     app.config['MYSQL_DATABASE_PORT'] = 3306
-    app.config['MYSQL_DATABASE_DB'] = 'QuizDB'  # Change this to your DB name
+    app.config['MYSQL_DATABASE_DB'] = 'quizdb'  # Change this to your DB name
 
     # Initialize the database object with the settings above.
     db.init_app(app)
