@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO ResponseOptions(question_id,option_text,correct) VALUES (196,'czomln',0);
 INSERT INTO ResponseOptions(question_id,option_text,correct) VALUES (248,'qezcyv',1);

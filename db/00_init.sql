@@ -1,7 +1,7 @@
--- DROP DATABASE QuizDB;
-CREATE DATABASE QuizDB;
+-- DROP DATABASE quizdb;
+CREATE DATABASE quizdb;
 SHOW DATABASES;
-USE QuizDB;
+USE quizdb;
 
 
 CREATE TABLE Moderator
@@ -22,7 +22,6 @@ CREATE TABLE Writer
     yearsActive INT DEFAULT 0                  NOT NULL,
     numOffenses INT DEFAULT 0                  NOT NULL
 );
-
 
 CREATE TABLE User
 (
@@ -126,7 +125,7 @@ CREATE TABLE FlaggedUsers
     PRIMARY KEY (user_id, mod_id, num_offenses),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -139,7 +138,7 @@ CREATE TABLE ContactedUsers
     PRIMARY KEY (user_id, mod_id),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -152,7 +151,7 @@ CREATE TABLE UserQuizzes
     PRIMARY KEY (user_id, quiz_id),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (quiz_id)
         REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

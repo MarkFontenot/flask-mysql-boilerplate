@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO FlaggedQuizzes(quiz_id,mod_id) VALUES (21,2);
 INSERT INTO FlaggedQuizzes(quiz_id,mod_id) VALUES (8,2);

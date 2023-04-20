@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO ContactedUsers(user_id,mod_id) VALUES (3,1);
 INSERT INTO ContactedUsers(user_id,mod_id) VALUES (7,2);

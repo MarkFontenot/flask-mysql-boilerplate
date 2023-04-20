@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO User(id,username,FName,LName,numOffenses,email) VALUES (1,'mellit0','Mersey','Ellit',0,'mellit0@alibaba.com');
 INSERT INTO User(id,username,FName,LName,numOffenses,email) VALUES (2,'scattlow1','Sydney','Cattlow',3,'scattlow1@cisco.com');

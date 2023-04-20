@@ -21,7 +21,7 @@ def create_app():
         '/secrets/db_root_password.txt').readline()
     app.config['MYSQL_DATABASE_HOST'] = 'db'
     app.config['MYSQL_DATABASE_PORT'] = 3306
-    app.config['MYSQL_DATABASE_DB'] = 'QuizDB'  # Change this to your DB name
+    app.config['MYSQL_DATABASE_DB'] = 'quizdb'  # Change this to your DB name
 
     # Initialize the database object with the settings above.
     db.init_app(app)
@@ -34,9 +34,11 @@ def create_app():
     # Import the various routes
     from src.views import views
     from src.writers.writers import writers
+    from src.users.users import users
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(views,   url_prefix='/v')
+    app.register_blueprint(views, url_prefix='/v')
     app.register_blueprint(writers, url_prefix='/w')
+    app.register_blueprint(users, url_prefix='/u')
 
     return app

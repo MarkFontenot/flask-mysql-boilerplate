@@ -1,4 +1,4 @@
-USE QuizDB;
+USE quizdb;
 
 INSERT INTO Response(id,selection,dateAdded,quiz_id,question_id,user_id) VALUES (1,'srarc','2023-02-26 01:15:29','23',50,'4');
 INSERT INTO Response(id,selection,dateAdded,quiz_id,question_id,user_id) VALUES (2,'tahgx','2022-06-04 12:43:13','28',205,'12');
