@@ -566,5 +566,87 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "f068e08e-4c12-4886-acb6-b595fe5ffc05",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "b0285ab6-1da0-4a88-a329-c108b710e2f2",
+    "name": "{{host}}:{{port}}/u/quizzes/1",
+    "url": "localhost:8001/u/quizzes/1",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-19T19:57:18.426Z",
+    "modified": "2023-04-19T22:45:59.183Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8cb41e97-531a-4c8c-8346-6520487633ae",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "b0285ab6-1da0-4a88-a329-c108b710e2f2",
+    "name": "{{host}}:{{port}}/u/quizzes/all",
+    "url": "localhost:8001/u/quizzes/all",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-19T19:57:25.061Z",
+    "modified": "2023-04-19T22:46:02.935Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "84d4256a-f0ce-462f-9bbd-3f185dea5d7d",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "ce879051-09e2-4943-883b-29f5a6d76464",
+    "name": "localhost:8001/u/history",
+    "url": "{{host}}:{{port}}/u/history",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-19T19:58:35.261Z",
+    "modified": "2023-04-19T23:24:52.459Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f011f58c-7265-4b5e-83cd-7b7fe317dcfa",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "b0285ab6-1da0-4a88-a329-c108b710e2f2",
+    "name": "{{host}}:{{port}}/u/quizzes/1",
+    "url": "{{host}}:{{port}}/u/quizzes/1",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-19T19:59:39.865Z",
+    "modified": "2023-04-19T23:25:52.066Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "eb63dfcc-f31e-48b2-91f1-3efd5839a1ee",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "",
+    "name": "{{host}}:{{port}}/u/users",
+    "url": "{{host}}:{{port}}/u/users",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-04-19T23:24:31.863Z",
+    "modified": "2023-04-20T00:47:26.278Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\" : 30,\n  \"username\" : \"EpicGamer32\",\n  \"FName\" : \"Epic\",\n  \"LName\" : \"Gamer\",\n  \"numOffenses\" : 2,\n  \"email\" : \"321@123.com\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]

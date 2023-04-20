@@ -23,7 +23,6 @@ CREATE TABLE Writer
     numOffenses INT DEFAULT 0                  NOT NULL
 );
 
-
 CREATE TABLE User
 (
     id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -31,7 +30,7 @@ CREATE TABLE User
     FName       VARCHAR(50)                    NOT NULL,
     LName       VARCHAR(50)                    NOT NULL,
     numOffenses INT DEFAULT 0                  NOT NULL,
-    email       VARCHAR(50)                    NOT NULL
+    email       VARCHAR(50)                    NOT NULL,
 );
 
 
@@ -126,7 +125,7 @@ CREATE TABLE FlaggedUsers
     PRIMARY KEY (user_id, mod_id, num_offenses),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -139,7 +138,7 @@ CREATE TABLE ContactedUsers
     PRIMARY KEY (user_id, mod_id),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (mod_id)
         REFERENCES Moderator (id)
 );
@@ -152,7 +151,7 @@ CREATE TABLE UserQuizzes
     PRIMARY KEY (user_id, quiz_id),
 
     FOREIGN KEY (user_id)
-        REFERENCES User (id),
+        REFERENCES User (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (quiz_id)
         REFERENCES Quiz (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

@@ -17,12 +17,12 @@ def execute_cursor_with_response(sql_query):
     the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
-    return jsonify(the_response)
+    return the_response
 
 # Get a list of all available quizzes by their title
 @users.route('/quizzes/all', methods=['GET'])
 def get_all_quizzes():
-    query = f'''
+    query = '''
         SELECT title
         FROM Quiz
         WHERE status = 'active'
@@ -36,12 +36,13 @@ def get_quiz(quiz_id):
         SELECT title, username, question_text
         FROM Quiz JOIN Writer ON Quiz.writer_id = Writer.id 
              JOIN Question ON Quiz.id = Question.quiz_id
+        WHERE quiz_id = {quiz_id}
     '''
     return execute_cursor_with_response(query)
 
 # Get the user's final score on a particular quiz
 # TODO unsure if this is written correctly
-@users.route('/quizzes/<int:quiz_id/score', methods=['GET'])
+@users.route('/quizzes/<int:quiz_id>/<int:user_id>/score', methods=['GET'])
 def get_score(quiz_id, user_id):
     query = f'''
         SELECT count(question_id) as correct
@@ -57,9 +58,9 @@ def get_score(quiz_id, user_id):
     '''
     return execute_cursor_with_response(query)
 
-# Get a list of all quizzes the user has taken before
-@users.route('/users/<int:user_id/history', methods=['GET'])
-def get_history(user_id):
+# Get a list of all quizzes that have been taken before
+@users.route('/history', methods=['GET'])
+def get_history():
     query = f'''
         SELECT title
         FROM Quiz JOIN User
@@ -68,7 +69,7 @@ def get_history(user_id):
     return execute_cursor_with_response(query)
 
 # Get the link to a particular quiz
-@users.route('/quizzes/<int:quiz_id', methods=['GET'])
+@users.route('/quizzes/<int:quiz_id>', methods=['GET'])
 def get_link(quiz_id):
     query = f'''
         SELECT URL
@@ -89,14 +90,14 @@ def create_account():
     id = the_data['id']
     username = the_data['username']
     FName = the_data['FName']
-    LName = the_data['yearsActive']
-    yearsActive = the_data['yearsActive']
+    LName = the_data['LName']
     numOffenses = the_data['numOffenses']
+    email = the_data['email']
 
     # constructing the query
     query = f'''
-        INSERT INTO User (id, username, FName, LName, yearsActive, numOffenses)
-        VALUES ("{id}", "{username}", "{FName}", "{LName}", "{yearsActive}", "{numOffenses}")
+        INSERT INTO User (id, username, FName, LName, numOffenses, email)
+        VALUES ("{id}", "{username}", "{FName}", "{LName}", "{numOffenses}", "{email}")
     '''
 
     current_app.logger.info(query)
@@ -110,7 +111,7 @@ def create_account():
 
 
 # Deletes a particular user account
-@users.route('/users/<int:user_id/delete', methods=['DELETE'])
+@users.route('/users/<int:user_id>/delete', methods=['DELETE'])
 def delete_user(user_id):
     query = f'''
         DELETE FROM User
@@ -119,9 +120,10 @@ def delete_user(user_id):
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+    
 
 # Updates the username of a particular user
-@users.route('/users/<int:user_id/update', methods=['PUT'])
+@users.route('/users/<int:user_id>/<int:new_name>/update', methods=['PUT'])
 def update_usert(user_id, new_name):
     query = f'''
         UPDATE Users
