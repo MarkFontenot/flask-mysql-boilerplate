@@ -182,7 +182,7 @@ def create_post_review():
 
     # Constructing the query
     query = 'INSERT INTO PostReviews (post_id, consumer_id, rating, description) values ("'
-    query += body['post_id'] + '", "'
+    query += str(body['post_id']) + '", "'
     query += body['consumer_id'] + '", "'
     query += str(body['rating']) + '", "'
     query += body['description'] + '")'
