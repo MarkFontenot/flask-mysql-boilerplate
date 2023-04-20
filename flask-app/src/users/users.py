@@ -129,7 +129,3 @@ def update_user(user_id, new_name):
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
-
-    return 'Success!'
-
-# TODO all tests for these routes
