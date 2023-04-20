@@ -1,4 +1,7 @@
-# MySQL + Flask Boilerplate Project
+# Phase 3: MySQL + Dynamo Meals Boilerplate Project
+
+Our project is a food delivery and social media application, currently we support two types of users to interact with each other, consumers and chefs. The application includes a GitHub repository, which supports creating a post from the chef's end, searching for a post, as well as looking at placed orders. Our databse has 13 tables. We can only modify two tables, posts and orders and they are done by executing post.py and orders.py in our local appsmith.
+
 
 This repo contains a boilerplate setup for spinning up 3 Docker containers: 
 1. A MySQL 8 container for obvious reasons
@@ -14,6 +17,7 @@ This repo contains a boilerplate setup for spinning up 3 Docker containers:
 1. In a terminal or command prompt, navigate to the folder with the `docker-compose.yml` file.  
 1. Build the images with `docker compose build`
 1. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`. 
+
 
 
 
