@@ -20,7 +20,7 @@ def list_orders():
                        JOIN Orders o ON o.post_id = p.post_id
                        JOIN Consumers co ON o.consumer_id = co.consumer_id
                        JOIN Users u ON co.user_id = u.user_id
-                       WHERE o.accepted = 'false' AND c.chef_id = '{chef_string}'""")
+                       WHERE o.accepted = 'false' AND c.chef_id = \'{chef_string}\'""")
 
     column_headers = [x[0] for x in cursor.description]
 
@@ -199,7 +199,8 @@ def get_deliveries():
                        JOIN Users u ON dr.user_id = u.user_id
                        JOIN Orders o ON o.order_id = d.order_id
                        JOIN Posts p ON p.post_id = o.post_id
-                       WHERE p.chef_id = \'{str(chef_id)}\'""")
+                       WHERE p.chef_id = '{str(chef_id)}'""")
+
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]

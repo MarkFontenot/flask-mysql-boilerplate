@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "78d7a114-3aba-4342-b682-4e9bcd92bc57",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8001/ch/accept_order",
+    "url": "localhost:8001/ch/accept_order",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-04-20T22:41:19.835Z",
+    "modified": "2023-04-20T22:41:19.835Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n \"order_id\": 7,\n \"post_id\": 8,\n \"consumer_id\": \"consumer-1834769400\",\n \"accepted\": \"false\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
