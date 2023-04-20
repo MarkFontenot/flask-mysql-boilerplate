@@ -30,7 +30,7 @@ CREATE TABLE User
     FName       VARCHAR(50)                    NOT NULL,
     LName       VARCHAR(50)                    NOT NULL,
     numOffenses INT DEFAULT 0                  NOT NULL,
-    email       VARCHAR(50)                    NOT NULL,
+    email       VARCHAR(50)                    NOT NULL
 );
 
 
