@@ -38,9 +38,11 @@ def post_thought() -> Response:
 def get_thought(thought_id : int) -> Response:
     query = f'''
     SELECT * FROM Thought 
-    Where ThoughtID = "{thought_id}"
+    JOIN User on Thought.UserID = User.UserID
+    Where ThoughtID = {thought_id}
     '''
     return sql_to_json(execute_sql(query))
+
 
 @thoughts.route('/<thought_id>', methods=['PUT'])
 def update_thought(thought_id : int) -> Response:
@@ -87,6 +89,7 @@ def get_thought_comments(thought_id):
     Thought t join 
     ThoughtComments tc 
     on t.ThoughtID = tc.ThoughtID
+    JOIN User u on u.UserID = tc.UserID
     where t.ThoughtID = "{thought_id}"
     '''
     return sql_to_json(execute_sql(query))
