@@ -23,15 +23,10 @@ def create_app():
 
     # Initialize the database object with the settings above. 
     db.init_app(app)
-    
-    # Add a default route
-    @app.route("/")
-    def welcome():
-        return "<h1>Welcome to the Dynamo App</h1>"
 
     # Import the various routes
-    from src.consumer.search import consumer
-    from src.chef.orders import chef
+    from src.consumer.consumer import consumer
+    from src.chef.chef import chef
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(consumer, url_prefix='/co')
