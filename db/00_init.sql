@@ -25,7 +25,7 @@ CREATE TABLE Writer
 
 CREATE TABLE User
 (
-    user_id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id          INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     username    VARCHAR(50)                    NOT NULL,
     FName       VARCHAR(50)                    NOT NULL,
     LName       VARCHAR(50)                    NOT NULL,

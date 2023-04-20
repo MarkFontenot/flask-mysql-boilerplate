@@ -598,13 +598,13 @@
   {
     "_id": "84d4256a-f0ce-462f-9bbd-3f185dea5d7d",
     "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
-    "containerId": "ce879051-09e2-4943-883b-29f5a6d76464",
+    "containerId": "",
     "name": "localhost:8001/u/history",
     "url": "{{host}}:{{port}}/u/history",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-19T19:58:35.261Z",
-    "modified": "2023-04-19T23:24:52.459Z",
+    "modified": "2023-04-20T17:09:13.845Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -626,13 +626,13 @@
   {
     "_id": "eb63dfcc-f31e-48b2-91f1-3efd5839a1ee",
     "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
-    "containerId": "",
+    "containerId": "ce879051-09e2-4943-883b-29f5a6d76464",
     "name": "{{host}}:{{port}}/u/users",
     "url": "{{host}}:{{port}}/u/users",
     "method": "POST",
-    "sortNum": 60000,
+    "sortNum": 40000,
     "created": "2023-04-19T23:24:31.863Z",
-    "modified": "2023-04-20T01:53:09.196Z",
+    "modified": "2023-04-20T17:08:58.194Z",
     "headers": [],
     "params": [],
     "body": {
@@ -648,5 +648,43 @@
         "value": "200"
       }
     ]
+  },
+  {
+    "_id": "155d03e4-3f45-4d83-966d-260775e494bd",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "ce879051-09e2-4943-883b-29f5a6d76464",
+    "name": "{{host}}:{{port}}/u/users/",
+    "url": "{{host}}:{{port}}/u/users",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-04-20T17:08:51.295Z",
+    "modified": "2023-04-20T18:00:49.791Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\" : 33,\n  \"username\" : \"Slimecicle\",\n  \"FName\" : \"Charlie\",\n  \"LName\" : \"Slime\",\n  \"numOffenses\" : 1,\n  \"email\" : \"goopin@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "abafdb04-0601-455f-ab88-eb881bcc1774",
+    "colId": "55b92c26-d610-4e57-bf01-280b4e2b9339",
+    "containerId": "ce879051-09e2-4943-883b-29f5a6d76464",
+    "name": "{{host}}:{{port}}/u/users",
+    "url": "{{host}}:{{port}}/u/users",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-04-20T17:09:44.411Z",
+    "modified": "2023-04-20T17:09:44.411Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\" : 35,\n  \"username\" : \"WaterFilter\",\n  \"FName\" : \"Quail\",\n  \"LName\" : \"Bird\",\n  \"numOffenses\" : 0,\n  \"email\" : \"bbirdie@yahoo.com\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
