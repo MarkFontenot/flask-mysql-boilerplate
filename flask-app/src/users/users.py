@@ -40,21 +40,15 @@ def get_quiz(quiz_id):
     '''
     return execute_cursor_with_response(query)
 
-# Get the user's final score on a particular quiz
-# TODO unsure if this is written correctly
-@users.route('/quizzes/<int:quiz_id>/<int:user_id>/score', methods=['GET'])
-def get_score(quiz_id, user_id):
+# Get whether or not the user got the given question correct
+@users.route('/quizzes/<int:question_id>/<int:user_id>/score', methods=['GET'])
+def get_score(question_id, user_id):
     query = f'''
-        SELECT count(question_id) as correct
-        FROM Response JOIN ResponseOptions ON (question_id)
-        WHERE ResponseOptions.correct = true
-              AND user_id = {user_id}
-              AND quiz_id = {quiz_id}
-
-        SELECT ROUND(correct / count(response.selection), 1) AS score
-        FROM correct JOIN Response
-        WHERE user_id = {user_id}
-              AND quiz_id = {quiz_id}
+        SELECT correct
+        FROM ResponseOptions JOIN Response ON ResponseOptions.question_id = Response.question_id
+             JOIN Question ON Question.id = Response.question_id
+        WHERE ResponseOptions.question_id = {question_id}
+                AND Response.user_id = {user_id}
     '''
     return execute_cursor_with_response(query)
 
@@ -120,11 +114,12 @@ def delete_user(user_id):
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+    return {}
     
 
 # Updates the username of a particular user
 @users.route('/users/<int:user_id>/<int:new_name>/update', methods=['PUT'])
-def update_usert(user_id, new_name):
+def update_user(user_id, new_name):
     query = f'''
         UPDATE User
         SET
@@ -134,5 +129,7 @@ def update_usert(user_id, new_name):
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+
+    return 'Success!'
 
 # TODO all tests for these routes
