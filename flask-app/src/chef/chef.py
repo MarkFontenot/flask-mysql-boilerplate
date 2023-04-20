@@ -22,7 +22,6 @@ def list_orders():
                        JOIN Users u ON co.user_id = u.user_id
                        WHERE o.accepted = 'false' AND c.chef_id = '{chef_string}'""")
 
-    # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
 
     # create an empty dictionary object to use in 
