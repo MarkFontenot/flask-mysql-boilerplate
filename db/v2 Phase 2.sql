@@ -215,18 +215,18 @@ create table DynamoMealsV2.ChefReview (
 	CONSTRAINT fk_12 foreign key (chef_id) REFERENCES Chefs (chef_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('d7t9q4o3i7p4',8761353670,'chef-7875749874',4,'Multi-channelled transitional superstructure');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('v8m5o6r0z7z6',4876321349,'chef-5869604817',3,'Pre-emptive needs-based throughput');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('d3i8m1n8t0b8',3210177218,'chef-7164354370',5,'Profit-focused intangible orchestration');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('b1a4a0a8b4x8',6903108375,'chef-2633786937',3,'Team-oriented encompassing capacity');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('q2p6b3z4e0h4',5652806794,'chef-0306640423',1,'Multi-channelled clear-thinking approach');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('b2v5x0t9z4l0',6035314078,'chef-1796940861',4,'Team-oriented fresh-thinking definition');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('b3y0o0v6e6c1',0530379684,'chef-7053122169',3,'Extended eco-centric productivity');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('m8o1n0a9s1b8',6666408381,'chef-9823785908',5,'Persevering reciprocal matrices');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('a9g7y5n6p6i3',1787437179,'chef-5039725977',5,'Optional homogeneous focus group');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('r7d2d7s8g2k9',3943310720,'chef-4471120964',3,'Front-line fresh-thinking matrices');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('g2e8l5m3z8t5',8686381072,'chef-3096234415',5,'Open-source interactive analyzer');
-INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES ('m6h5y0r1z3d2',4569140322,'chef-0728410444',4,'Multi-layered responsive ability');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (1,8761353670,'chef-7875749874',4,'Multi-channelled transitional superstructure');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (2,4876321349,'chef-5869604817',3,'Pre-emptive needs-based throughput');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (3,3210177218,'chef-7164354370',5,'Profit-focused intangible orchestration');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (4,6903108375,'chef-2633786937',3,'Team-oriented encompassing capacity');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (5,5652806794,'chef-0306640423',1,'Multi-channelled clear-thinking approach');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (6,6035314078,'chef-1796940861',4,'Team-oriented fresh-thinking definition');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (7,0530379684,'chef-7053122169',3,'Extended eco-centric productivity');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (8,6666408381,'chef-9823785908',5,'Persevering reciprocal matrices');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (9,1787437179,'chef-5039725977',5,'Optional homogeneous focus group');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (10,3943310720,'chef-4471120964',3,'Front-line fresh-thinking matrices');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (11,8686381072,'chef-3096234415',5,'Open-source interactive analyzer');
+INSERT INTO ChefReview(chef_review_id,reviewer_id,chef_id,rating,description) VALUES (12,4569140322,'chef-0728410444',4,'Multi-layered responsive ability');
 
 create table DynamoMealsV2.ConsReview (
 	consumer_review_id int PRIMARY KEY AUTO_INCREMENT,
@@ -238,18 +238,18 @@ create table DynamoMealsV2.ConsReview (
 	CONSTRAINT fk_14 foreign key (consumer_id) REFERENCES Consumers (consumer_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('b7a4g7r1r3d3',8761353670,'consumer-4115839819',2,'Versatile directional orchestration');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('n2f3n9m9u2s1',4876321349,'consumer-6230596171',5,'Visionary bandwidth-monitored hardware');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('b0i0g7o7s8q1',3210177218,'consumer-8765991669',3,'Switchable fresh-thinking framework');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('r0b9d7d7r2r6',6903108375,'consumer-8624772349',2,'Versatile next generation standardization');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('h7i8u8s4j1u8',5652806794,'consumer-2858977612',4,'Devolved uniform local area network');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('m8b1o9x2r1r8',6035314078,'consumer-9311283308',2,'Inverse needs-based concept');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('n8c8d2s5t6s6',0530379684,'consumer-3444503604',5,'Re-engineered 24 hour parallelism');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('w6p4a8j3a9s5',6666408381,'consumer-8603585179',1,'Inverse logistical software');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('d8n6b7f2c2t6',1787437179,'consumer-8055338372',1,'Reduced context-sensitive knowledge base');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('d0s0l2r9o2y1',3943310720,'consumer-7287119693',3,'Multi-lateral eco-centric pricing structure');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('s8g0o9i1q6l9',8686381072,'consumer-0231141671',3,'Re-engineered fresh-thinking adapter');
-INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES ('i0e8o5y2m8z5',4569140322,'consumer-6783275722',4,'Right-sized maximized attitude');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (1,8761353670,'consumer-4115839819',2,'Versatile directional orchestration');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (2,4876321349,'consumer-6230596171',5,'Visionary bandwidth-monitored hardware');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (3,3210177218,'consumer-8765991669',3,'Switchable fresh-thinking framework');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (4,6903108375,'consumer-8624772349',2,'Versatile next generation standardization');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (5,5652806794,'consumer-2858977612',4,'Devolved uniform local area network');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (6,6035314078,'consumer-9311283308',2,'Inverse needs-based concept');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (7,0530379684,'consumer-3444503604',5,'Re-engineered 24 hour parallelism');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (8,6666408381,'consumer-8603585179',1,'Inverse logistical software');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (9,1787437179,'consumer-8055338372',1,'Reduced context-sensitive knowledge base');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (10,3943310720,'consumer-7287119693',3,'Multi-lateral eco-centric pricing structure');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (11,8686381072,'consumer-0231141671',3,'Re-engineered fresh-thinking adapter');
+INSERT INTO ConsReview(consumer_review_id,reviewer_id,consumer_id,rating,description) VALUES (12,4569140322,'consumer-6783275722',4,'Right-sized maximized attitude');
 
 create table DynamoMealsV2.DriverReview (
 	driver_review_id int PRIMARY KEY AUTO_INCREMENT,
@@ -261,18 +261,18 @@ create table DynamoMealsV2.DriverReview (
 	CONSTRAINT fk_16 foreign key (driver_id) REFERENCES Drivers (driver_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('e0w1b6x8k1t0',8761353670,'driver-7602000741',2,'Stand-alone optimizing utilisation');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('r4y6r3w9j5m9',4876321349,'driver-0044649772',2,'Visionary bifurcated model');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('x6s0z8x6o4c7',3210177218,'driver-1262688841',4,'Organic heuristic info-mediaries');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('r3j6g0o1d6g0',6903108375,'driver-5135519555',4,'Vision-oriented context-sensitive open system');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('h6p2x6v3f3h2',5652806794,'driver-5835394224',4,'Proactive explicit neural-net');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('l8f2h7m6y4w1',6035314078,'driver-5957762684',3,'Persevering system-worthy initiative');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('i4o6s4w6f4z4',0530379684,'driver-0327100641',4,'Profit-focused high-level website');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('u6r4b6n4l1l5',6666408381,'driver-3584323207',3,'Extended eco-centric capacity');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('i4w1d2a1j1g4',1787437179,'driver-4113262432',5,'Reduced directional migration');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('d2w4x3m6g8l8',3943310720,'driver-2833491848',1,'Synergized well-modulated definition');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('l5f3s5j2f7p7',8686381072,'driver-3703669094',1,'Synergistic grid-enabled superstructure');
-INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES ('v3p7b9l4g1r3',4569140322,'driver-4546280011',2,'Realigned empowering attitude');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (1,8761353670,'driver-7602000741',2,'Stand-alone optimizing utilisation');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (2,4876321349,'driver-0044649772',2,'Visionary bifurcated model');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (3,3210177218,'driver-1262688841',4,'Organic heuristic info-mediaries');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (4,6903108375,'driver-5135519555',4,'Vision-oriented context-sensitive open system');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (5,5652806794,'driver-5835394224',4,'Proactive explicit neural-net');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (6,6035314078,'driver-5957762684',3,'Persevering system-worthy initiative');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (7,0530379684,'driver-0327100641',4,'Profit-focused high-level website');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (8,6666408381,'driver-3584323207',3,'Extended eco-centric capacity');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (9,1787437179,'driver-4113262432',5,'Reduced directional migration');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (10,3943310720,'driver-2833491848',1,'Synergized well-modulated definition');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (11,8686381072,'driver-3703669094',1,'Synergistic grid-enabled superstructure');
+INSERT INTO DriverReview(driver_review_id,reviewer_id,driver_id,rating,description) VALUES (12,4569140322,'driver-4546280011',2,'Realigned empowering attitude');
 
 create table DynamoMealsV2.Deliveries (
 	delivery_id int PRIMARY KEY AUTO_INCREMENT,
@@ -286,15 +286,15 @@ create table DynamoMealsV2.Deliveries (
 	CONSTRAINT fk_18 foreign key (driver_id) REFERENCES Drivers (driver_id) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('8EthhGm8WX',1,'driver-7602000741','9:09 PM','11:26 AM','69878 Pennsylvania Alley','93 Victoria Plaza');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('jaTdijq9Gc',2,'driver-0044649772','2:51 PM','6:30 PM','29354 Macpherson Pass','090 Morningstar Pass');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('NLbtnmenV1',3,'driver-1262688841','12:10 AM','9:34 AM','49 Homewood Road','5991 Pankratz Point');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('zEcTtGpJoK',4,'driver-5135519555','1:22 PM','12:56 PM','050 Quincy Pass','21276 Twin Pines Drive');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('lbT0vLjH1O',5,'driver-5835394224','4:20 AM','3:36 PM','6195 Shopko Center','71 Manley Parkway');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('tELSdYmc1H',6,'driver-5957762684','3:09 PM','2:34 PM','25968 Bashford Place','2067 Menomonie Way');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('rwT4aCN2Ro',7,'driver-0327100641','3:25 PM','2:51 AM','08 American Ash Trail','98750 Acker Road');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('xsW3yLvXWj',8,'driver-3584323207','3:58 AM','9:50 PM','0895 Hooker Alley','009 Ryan Avenue');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('0j5i44tK5G',9,'driver-4113262432','6:56 AM','4:08 PM','513 Calypso Way','3818 Westerfield Point');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('XTE7MKxeAl',10,'driver-2833491848','6:07 AM','11:31 AM','65 Arrowood Plaza','83 Fremont Street');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('2Wx2BrOf6k',11,'driver-3703669094','3:15 PM','4:04 PM','6 Burning Wood Place','44855 Farmco Alley');
-INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES ('CoX516DeFs',12,'driver-4546280011','1:19 AM','9:47 PM','17526 Boyd Court','48342 Comanche Junction');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (1,1,'driver-7602000741','9:09 PM','11:26 AM','69878 Pennsylvania Alley','93 Victoria Plaza');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (2,2,'driver-0044649772','2:51 PM','6:30 PM','29354 Macpherson Pass','090 Morningstar Pass');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (3,3,'driver-1262688841','12:10 AM','9:34 AM','49 Homewood Road','5991 Pankratz Point');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (4,4,'driver-5135519555','1:22 PM','12:56 PM','050 Quincy Pass','21276 Twin Pines Drive');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (5,5,'driver-5835394224','4:20 AM','3:36 PM','6195 Shopko Center','71 Manley Parkway');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (6,6,'driver-5957762684','3:09 PM','2:34 PM','25968 Bashford Place','2067 Menomonie Way');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (7,7,'driver-0327100641','3:25 PM','2:51 AM','08 American Ash Trail','98750 Acker Road');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (8,8,'driver-3584323207','3:58 AM','9:50 PM','0895 Hooker Alley','009 Ryan Avenue');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (9,9,'driver-4113262432','6:56 AM','4:08 PM','513 Calypso Way','3818 Westerfield Point');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (10,10,'driver-2833491848','6:07 AM','11:31 AM','65 Arrowood Plaza','83 Fremont Street');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (11,11,'driver-3703669094','3:15 PM','4:04 PM','6 Burning Wood Place','44855 Farmco Alley');
+INSERT INTO Deliveries(delivery_id,order_id,driver_id,expected_pickup,expected_delivery,pickup_address,delivery_address) VALUES (12,12,'driver-4546280011','1:19 AM','9:47 PM','17526 Boyd Court','48342 Comanche Junction');
