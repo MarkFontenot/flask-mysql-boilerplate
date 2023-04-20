@@ -2,6 +2,11 @@
 
 from flask import Flask
 from flaskext.mysql import MySQL
+import rds_config
+
+conn = pymsql.connect('hostname', user='username', passwd='password', connect_timeout=10)
+with conn.cursor() as cur:
+    cur.execute('crete database')
 
 # create a MySQL object that we will use in other parts of the API
 db = MySQL()

@@ -50,9 +50,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-19T19:59:30.229Z",
-    "modified": "2023-04-19T19:59:30.229Z",
+    "modified": "2023-04-20T16:27:19.695Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -78,7 +83,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-19T20:01:44.988Z",
-    "modified": "2023-04-20T02:03:45.982Z",
+    "modified": "2023-04-20T02:46:30.001Z",
     "headers": [],
     "params": [],
     "body": {
