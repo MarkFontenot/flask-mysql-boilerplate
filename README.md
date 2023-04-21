@@ -17,9 +17,9 @@ This repo contains a boilerplate setup for spinning up 3 Docker containers:
 1. Build the images with `docker compose build`
 1. Start the containers with `docker compose up`.  To run in detached mode, run `docker compose up -d`.
 1. Go to localhost:8080 in a web browser, follow all appsmith instructions to login.
-1. Go to appsmith home screen, go to three dots on top right, import -> import from git repository, using git@github.com:{username}/CS3200-Dynamo-Meals.git
+1. Go to appsmith home screen, go to three dots on top right, import -> import from git repository, using git@github.com:natejparker/CS3200-Dynamo-Meals.git
 1. Copy the provided ssh key and copy it to your github account under settings -> SSH and GPG Keys.
-1. Go to CS3200-Dynamo-Meals application and hit preview.
+1. Go to CS3200-Dynamo-Meals application and hit preview to view application.
 
 
 
