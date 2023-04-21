@@ -38,7 +38,7 @@ def search_posts():
     return jsonify(json_data)
 
 # Get all the products from the database
-@consumer.route('/get_post', methods=['GET'])
+@consumer.route('/post', methods=['GET'])
 def get_post():
     post_id = request.args.get('post_id')
 
@@ -119,7 +119,7 @@ def get_orders_for_post():
 
     return jsonify(json_data)
 
-@consumer.route('/list_consumers', methods=['GET'])
+@consumer.route('/consumers', methods=['GET'])
 def list_all_consumers():
 
     # get a cursor object from the database
@@ -148,7 +148,7 @@ def list_all_consumers():
     return jsonify(json_data)
 
 
-@consumer.route('/all_posts', methods=['GET'])
+@consumer.route('/posts', methods=['GET'])
 def list_all_posts():
 
     # get a cursor object from the database

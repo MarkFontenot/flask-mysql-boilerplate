@@ -6,7 +6,7 @@ from src import db
 chef = Blueprint('chef', __name__)
 
 # Get all the products from the database
-@chef.route('/list_orders', methods=['GET'])
+@chef.route('/orders', methods=['GET'])
 def list_orders():
     chef_string = request.args.get('chef_id')
 
@@ -52,7 +52,7 @@ def accept_order():
 
     return 'Order accepted!'
 
-@chef.route('/delete_order', methods=['DELETE'])
+@chef.route('/order', methods=['DELETE'])
 def order_delete():
 
     # collecting data from the request object (walkthroguh part 3 22 min for more)
@@ -71,7 +71,7 @@ def order_delete():
 
     return 'Order deleted!'
 
-@chef.route('/list_chefs', methods=['GET'])
+@chef.route('/chefs', methods=['GET'])
 def list_chefs():
 
     # get a cursor object from the database
@@ -100,7 +100,7 @@ def list_chefs():
     return jsonify(json_data)
 
 # Get all the products from the database
-@chef.route('/chef', methods=['POST'])
+@chef.route('/post', methods=['POST'])
 def create_post():
     the_data = request.json
 
